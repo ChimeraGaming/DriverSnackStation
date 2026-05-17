@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=18">
   <script>
     window.DRIVER_SNACK_CONFIG = {
       supabaseUrl: "https://xcmhhuvcovbjvcabukbu.supabase.co",
@@ -23,7 +23,7 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script defer src="script.js?v=16"></script>
+  <script defer src="script.js?v=18"></script>
 </head>
 <body>
   <main class="page-shell">
@@ -69,125 +69,141 @@
         <p id="setup-message">This page still needs its Supabase keys before live submissions can be saved.</p>
       </section>
 
-      <section class="panel">
-        <div class="panel-heading">
-          <h2>Grabbed Today</h2>
-          <p class="small-note">Tap every snack or drink you grabbed.</p>
+      <section class="panel feedback-form-panel">
+        <div class="panel-heading feedback-form-heading">
+          <h2>Driver Feedback</h2>
+          <p class="small-note">Snack picks and requests up top. Optional note below.</p>
         </div>
-        <div class="snack-grid" id="snack-grid" aria-live="polite"></div>
-      </section>
+        <form id="snack-form" class="feedback-form-layout" novalidate>
+          <section class="feedback-block">
+            <div class="panel-heading">
+              <h3>Grabbed Today</h3>
+              <p class="small-note">Tap every snack or drink you grabbed.</p>
+            </div>
+            <div class="snack-grid" id="snack-grid" aria-live="polite"></div>
+          </section>
 
-      <section class="panel">
-        <h2>Cannot Find Your Snack?</h2>
-        <label class="field-label" for="custom-snack-input">Cannot find your snack? Add it here.</label>
-        <input id="custom-snack-input" class="text-input" name="customSnack" type="text" maxlength="80" autocomplete="off" placeholder="Type the snack or drink name">
-        <div class="match-panel hidden" id="match-panel" aria-live="polite">
-          <p class="match-title" id="match-title">Did you mean this snack?</p>
-          <div class="match-actions">
-            <button class="primary-button" id="match-yes-button" type="button">Yes, use that</button>
-            <button class="secondary-button" id="match-keep-button" type="button">Keep what I typed</button>
-            <button class="ghost-button" id="match-more-button" type="button">Show more options</button>
-          </div>
-          <div class="option-stack hidden" id="match-options"></div>
-        </div>
-        <p class="small-note" id="custom-help-text">Names are checked against existing snacks, aliases, and close spellings before a new request is saved.</p>
-        <p class="small-note">New snack requests do not show in the public list right away. They are saved first, then approved from the admin page.</p>
-        <div class="field-group">
-          <label class="field-label" for="wants-added">Snacks or drinks you would like added</label>
-          <textarea id="wants-added" class="text-area" name="wantsAdded" rows="1" maxlength="250"></textarea>
-        </div>
-      </section>
+          <section class="feedback-block">
+            <h3>Missing From Today's Station?</h3>
+            <label class="field-label" for="custom-snack-input">Snack or drink missing today</label>
+            <input id="custom-snack-input" class="text-input" name="customSnack" type="text" maxlength="80" autocomplete="off" placeholder="Type the snack or drink name">
+            <div class="match-panel hidden" id="match-panel" aria-live="polite">
+              <p class="match-title" id="match-title">Did you mean this snack?</p>
+              <div class="match-actions">
+                <button class="primary-button" id="match-yes-button" type="button">Yes, use that</button>
+                <button class="secondary-button" id="match-keep-button" type="button">Keep what I typed</button>
+                <button class="ghost-button" id="match-more-button" type="button">Show more options</button>
+              </div>
+              <div class="option-stack hidden" id="match-options"></div>
+            </div>
+            <p class="small-note" id="custom-help-text">Names are checked against existing snacks, aliases, and close spellings before a new request is saved.</p>
+            <p class="small-note">If it is brand new, it gets saved first and can be approved later from the admin page.</p>
+            <div class="field-group">
+              <label class="field-label" for="wants-added">Something you want us to stock later</label>
+              <textarea id="wants-added" class="text-area" name="wantsAdded" rows="1" maxlength="250"></textarea>
+            </div>
+          </section>
 
-      <section class="panel">
-        <h2>Requests and Notes</h2>
-        <p>We will probably not stock energy drinks.</p>
-        <p>For sports drinks, we will most likely stock Gatorade or Powerade depending on what is cheapest or easiest to buy at the time.</p>
-        <p>Water is usually easier for us to stock. If you have a favorite bottled water brand, let us know. The most popular request may win, but it needs to be something sold in a large pack, not single bottles.</p>
-      </section>
+          <section class="feedback-block notes-block">
+            <h3>Requests and Notes</h3>
+            <p>We will probably not stock energy drinks.</p>
+            <p>For sports drinks, we will most likely stock Gatorade or Powerade depending on what is cheapest or easiest to buy at the time.</p>
+            <p>Water is usually easier for us to stock. If you have a favorite bottled water brand, let us know. The most popular request may win, but it needs to be something sold in a large pack, not single bottles.</p>
+          </section>
 
-      <section class="panel">
-        <h2>Quick Form <span class="section-note">(Optional Section)</span></h2>
-        <form id="snack-form" novalidate>
-          <div class="field-group">
-            <label class="field-label" for="preferred-water-brand">Preferred bottled water brand</label>
-            <input id="preferred-water-brand" class="text-input" name="preferredWaterBrand" type="text" maxlength="80">
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="dislikes">Snacks or drinks you dislike</label>
-            <textarea id="dislikes" class="text-area" name="dislikes" rows="1" maxlength="250"></textarea>
+          <div class="submit-row split-submit-row">
+            <button class="primary-button submit-button" id="snack-submit-button" type="submit" data-submit-mode="snack">Submit Snack Picks</button>
+            <p class="small-note">Use this for what you grabbed and anything missing from today's station.</p>
           </div>
 
-          <div class="field-group">
-            <label class="field-label" for="delivery-frequency">How often do you deliver to this house?</label>
-            <select id="delivery-frequency" class="select-input" name="deliveryFrequency">
-              <option value="" selected>Select one</option>
-              <option value="First time">First time</option>
-              <option value="Rarely">Rarely</option>
-              <option value="Sometimes">Sometimes</option>
-              <option value="Often">Often</option>
-              <option value="I am a regular delivery driver here">I am a regular delivery driver here</option>
-            </select>
+          <div class="feedback-panel hidden" id="snack-feedback-panel" aria-live="polite">
+            <h3>Thanks</h3>
+            <p id="snack-feedback-message">Your snack note has been saved.</p>
           </div>
 
-          <div class="field-group">
-            <label class="field-label" for="area-delivery">Are you temporarily delivering in this area, or do you usually deliver around Wasilla?</label>
-            <select id="area-delivery" class="select-input" name="areaDelivery">
-              <option value="" selected>Select one</option>
-              <option value="Temporary">Temporary</option>
-              <option value="Usually deliver in Wasilla">Usually deliver in Wasilla</option>
-              <option value="Not sure">Not sure</option>
-              <option value="Prefer not to answer">Prefer not to answer</option>
-            </select>
+          <section class="feedback-block optional-block">
+            <h3>Quick Form <span class="section-note">(Optional Section)</span></h3>
+            <div class="field-group">
+              <label class="field-label" for="preferred-water-brand">Preferred bottled water brand</label>
+              <input id="preferred-water-brand" class="text-input" name="preferredWaterBrand" type="text" maxlength="80">
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="dislikes">Snacks or drinks you dislike</label>
+              <textarea id="dislikes" class="text-area" name="dislikes" rows="1" maxlength="250"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="delivery-frequency">How often do you deliver to this house?</label>
+              <select id="delivery-frequency" class="select-input" name="deliveryFrequency">
+                <option value="" selected>Select one</option>
+                <option value="First time">First time</option>
+                <option value="Rarely">Rarely</option>
+                <option value="Sometimes">Sometimes</option>
+                <option value="Often">Often</option>
+                <option value="I am a regular delivery driver here">I am a regular delivery driver here</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="area-delivery">Are you temporarily delivering in this area, or do you usually deliver around Wasilla?</label>
+              <select id="area-delivery" class="select-input" name="areaDelivery">
+                <option value="" selected>Select one</option>
+                <option value="Temporary">Temporary</option>
+                <option value="Usually deliver in Wasilla">Usually deliver in Wasilla</option>
+                <option value="Not sure">Not sure</option>
+                <option value="Prefer not to answer">Prefer not to answer</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="neighborhood-sighting">Have you seen other houses in this neighborhood do this?</label>
+              <select id="neighborhood-sighting" class="select-input" name="neighborhoodSighting">
+                <option value="" selected>Select one</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="wasilla-sighting">Have you seen this anywhere else in Wasilla?</label>
+              <select id="wasilla-sighting" class="select-input" name="wasillaSighting">
+                <option value="" selected>Select one</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="optional-message">Optional message</label>
+              <textarea id="optional-message" class="text-area" name="message" rows="1" maxlength="350"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="optional-nickname">Optional nickname</label>
+              <input id="optional-nickname" class="text-input" name="nickname" type="text" maxlength="40">
+            </div>
+
+            <div class="privacy-box">
+              <h3>Privacy</h3>
+              <p>This page does not ask for your email, phone number, or address.</p>
+              <p>Submissions can be anonymous. The public page only shows grouped totals and approved notes.</p>
+              <p>If personal details are typed into a note, they are not shown publicly.</p>
+            </div>
+          </section>
+
+          <div class="submit-row split-submit-row">
+            <button class="primary-button submit-button" id="optional-submit-button" type="submit" data-submit-mode="optional">Submit Optional Note</button>
+            <p class="small-note">Use this for the lower optional section only.</p>
           </div>
 
-          <div class="field-group">
-            <label class="field-label" for="neighborhood-sighting">Have you seen other houses in this neighborhood do this?</label>
-            <select id="neighborhood-sighting" class="select-input" name="neighborhoodSighting">
-              <option value="" selected>Select one</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="Not sure">Not sure</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="wasilla-sighting">Have you seen this anywhere else in Wasilla?</label>
-            <select id="wasilla-sighting" class="select-input" name="wasillaSighting">
-              <option value="" selected>Select one</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="Not sure">Not sure</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="optional-message">Optional message</label>
-            <textarea id="optional-message" class="text-area" name="message" rows="1" maxlength="350"></textarea>
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="optional-nickname">Optional nickname</label>
-            <input id="optional-nickname" class="text-input" name="nickname" type="text" maxlength="40">
-          </div>
-
-          <div class="privacy-box">
-            <h3>Privacy</h3>
-            <p>This page does not ask for your email, phone number, or address.</p>
-            <p>Submissions can be anonymous. The public page only shows grouped totals and approved notes.</p>
-            <p>If personal details are typed into a note, they are not shown publicly.</p>
-          </div>
-
-          <div class="submit-row">
-            <button class="primary-button submit-button" id="submit-button" type="submit">Send Feedback</button>
-            <p class="small-note">Anonymous submissions are welcome.</p>
+          <div class="feedback-panel hidden" id="optional-feedback-panel" aria-live="polite">
+            <h3>Thanks</h3>
+            <p id="optional-feedback-message">Your optional note has been saved.</p>
           </div>
         </form>
-
-        <div class="feedback-panel hidden" id="feedback-panel" aria-live="polite">
-          <h3>Thanks</h3>
-          <p id="feedback-message">Your snack note has been saved.</p>
-        </div>
       </section>
 
       <section class="panel" id="recent-grabs-panel">

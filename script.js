@@ -100,6 +100,7 @@
     selectedMatch: null,
     customDecision: "none",
     votePendingSnackId: "",
+    pendingSubmitMode: "snack",
     elements: {}
   };
 
@@ -132,7 +133,8 @@
       matchKeepButton: document.getElementById("match-keep-button"),
       matchMoreButton: document.getElementById("match-more-button"),
       form: document.getElementById("snack-form"),
-      submitButton: document.getElementById("submit-button"),
+      snackSubmitButton: document.getElementById("snack-submit-button"),
+      optionalSubmitButton: document.getElementById("optional-submit-button"),
       preferredWaterBrand: document.getElementById("preferred-water-brand"),
       wantsAdded: document.getElementById("wants-added"),
       dislikes: document.getElementById("dislikes"),
@@ -142,8 +144,10 @@
       wasillaSighting: document.getElementById("wasilla-sighting"),
       optionalMessage: document.getElementById("optional-message"),
       optionalNickname: document.getElementById("optional-nickname"),
-      feedbackPanel: document.getElementById("feedback-panel"),
-      feedbackMessage: document.getElementById("feedback-message"),
+      snackFeedbackPanel: document.getElementById("snack-feedback-panel"),
+      snackFeedbackMessage: document.getElementById("snack-feedback-message"),
+      optionalFeedbackPanel: document.getElementById("optional-feedback-panel"),
+      optionalFeedbackMessage: document.getElementById("optional-feedback-message"),
       refreshButton: document.getElementById("refresh-status-button"),
       recentGrabs: document.getElementById("recent-grabs"),
       recentGrabsPanel: document.getElementById("recent-grabs-panel"),
@@ -164,6 +168,12 @@
 
   function wireEvents() {
     state.elements.form.addEventListener("submit", handleFormSubmit);
+    state.elements.snackSubmitButton.addEventListener("click", function () {
+      state.pendingSubmitMode = "snack";
+    });
+    state.elements.optionalSubmitButton.addEventListener("click", function () {
+      state.pendingSubmitMode = "optional";
+    });
     state.elements.customSnackInput.addEventListener("input", handleCustomInputChange);
     state.elements.matchYesButton.addEventListener("click", handleUseSuggestedSnack);
     state.elements.matchKeepButton.addEventListener("click", handleKeepTypedSnack);
@@ -760,8 +770,10 @@
   async function handleFormSubmit(event) {
     event.preventDefault();
 
+    var submitMode = getSubmitMode(event);
+
     if (!state.supabase) {
-      showFeedback("This page is not connected yet. Add your Supabase keys first.", true);
+      showFeedback(submitMode, "This page is not connected yet. Add your Supabase keys first.", true);
       showSetupMessage("Add your Supabase URL and anon key in index.html to turn on live submissions.");
       return;
     }
@@ -769,14 +781,14 @@
     var payload;
 
     try {
-      payload = collectSubmissionPayload();
+      payload = submitMode === "optional" ? collectOptionalPayload() : collectSnackPayload();
     } catch (error) {
-      showFeedback(error.message, true);
+      showFeedback(submitMode, error.message, true);
       return;
     }
 
     disableSubmit(true);
-    showFeedback("Sending your feedback...", false);
+    showFeedback(submitMode, "Sending your feedback...", false);
 
     try {
       var response = await state.supabase.rpc("submit_snack_feedback", {
@@ -788,12 +800,14 @@
       }
 
       var result = response.data || {};
-      var successMessage = result.message || "Thanks. Your snack note has been saved.";
+      var successMessage = result.message || "Thanks. Your feedback has been saved.";
 
-      if (payload.customSnackOriginal && result.createdSnackId) {
+      if (submitMode === "snack" && payload.customSnackOriginal && result.createdSnackId) {
         successMessage = "Your snack request was saved and is waiting for approval before it shows in the public list.";
-      } else if (payload.customSnackOriginal && result.matchedSnackId) {
-        successMessage = "Your snack note was saved.";
+      } else if (submitMode === "snack") {
+        successMessage = "Your snack picks were saved.";
+      } else if (submitMode === "optional") {
+        successMessage = "Your optional note was saved.";
       }
 
       if (result.createdSnackId) {
@@ -802,51 +816,119 @@
       }
 
       await sendEmailNotification(payload, result);
-      clearFormState();
-      showFeedback(successMessage, false);
+      if (submitMode === "optional") {
+        clearOptionalFormState();
+      } else {
+        clearSnackFormState();
+      }
+      showFeedback(submitMode, successMessage, false);
       await loadStationData();
     } catch (error) {
       console.error("Unable to submit feedback.", error);
-      showFeedback("That note could not be saved right now. Please try again in a moment.", true);
+      showFeedback(submitMode, "That note could not be saved right now. Please try again in a moment.", true);
     } finally {
       disableSubmit(false);
     }
   }
 
-  function collectSubmissionPayload() {
+  function getSubmitMode(event) {
+    if (event.submitter && event.submitter.dataset && event.submitter.dataset.submitMode) {
+      return event.submitter.dataset.submitMode;
+    }
+
+    if (isOptionalFieldElement(document.activeElement)) {
+      return "optional";
+    }
+
+    return state.pendingSubmitMode || "snack";
+  }
+
+  function createBasePayload() {
+    return {
+      sessionId: state.sessionId,
+      selectedSnackIds: [],
+      selectedSnackTitles: [],
+      customSnackOriginal: "",
+      customSnackNormalized: "",
+      matchedSnackId: null,
+      customSnackDecision: "none",
+      preferredWaterBrand: "",
+      wantsAdded: "",
+      dislikes: "",
+      deliveryFrequency: "",
+      areaDelivery: "",
+      neighborhoodSighting: "",
+      wasillaSighting: "",
+      message: "",
+      nickname: "",
+      submittedAnonymously: true,
+      needsReview: false
+    };
+  }
+
+  function collectSnackPayload() {
     var customSnackOriginal = cleanText(state.elements.customSnackInput.value, 80);
     var selectedSnackIds = Array.from(state.selectedSnackIds);
     var selectedSnackTitles = selectedSnackIds.map(function (snackId) {
       return state.snackMap[snackId] ? state.snackMap[snackId].title : "";
     }).filter(Boolean);
 
-    var payload = {
-      sessionId: state.sessionId,
-      selectedSnackIds: selectedSnackIds,
-      selectedSnackTitles: selectedSnackTitles,
-      customSnackOriginal: customSnackOriginal,
-      customSnackNormalized: normalizeSnackText(customSnackOriginal),
-      matchedSnackId: state.customDecision === "matched-existing" && state.selectedMatch ? state.selectedMatch.id : null,
-      customSnackDecision: state.customDecision,
-      preferredWaterBrand: cleanText(state.elements.preferredWaterBrand.value, 80),
-      wantsAdded: cleanText(state.elements.wantsAdded.value, 250),
-      dislikes: cleanText(state.elements.dislikes.value, 250),
-      deliveryFrequency: state.elements.deliveryFrequency.value,
-      areaDelivery: state.elements.areaDelivery.value,
-      neighborhoodSighting: state.elements.neighborhoodSighting.value,
-      wasillaSighting: state.elements.wasillaSighting.value,
-      message: cleanText(state.elements.optionalMessage.value, 350),
-      nickname: cleanText(state.elements.optionalNickname.value, 40),
-      submittedAnonymously: cleanText(state.elements.optionalNickname.value, 40) === "",
-      needsReview: shouldMarkNeedsReview(customSnackOriginal)
-    };
+    var payload = createBasePayload();
+    payload.selectedSnackIds = selectedSnackIds;
+    payload.selectedSnackTitles = selectedSnackTitles;
+    payload.customSnackOriginal = customSnackOriginal;
+    payload.customSnackNormalized = normalizeSnackText(customSnackOriginal);
+    payload.matchedSnackId = state.customDecision === "matched-existing" && state.selectedMatch ? state.selectedMatch.id : null;
+    payload.customSnackDecision = state.customDecision;
+    payload.wantsAdded = cleanText(state.elements.wantsAdded.value, 250);
+    payload.needsReview = shouldMarkNeedsReview(customSnackOriginal);
 
-    var hasMeaningfulContent = payload.selectedSnackIds.length || payload.customSnackOriginal || payload.preferredWaterBrand || payload.wantsAdded || payload.dislikes || payload.message;
+    var hasMeaningfulContent = payload.selectedSnackIds.length || payload.customSnackOriginal || payload.wantsAdded;
     if (!hasMeaningfulContent) {
-      throw new Error("Please pick a snack, add a request, or leave a short note before sending.");
+      throw new Error("Please pick a snack, add a missing snack, or tell us what to stock later before sending.");
     }
 
     return payload;
+  }
+
+  function collectOptionalPayload() {
+    var nickname = cleanText(state.elements.optionalNickname.value, 40);
+    var payload = createBasePayload();
+
+    payload.preferredWaterBrand = cleanText(state.elements.preferredWaterBrand.value, 80);
+    payload.dislikes = cleanText(state.elements.dislikes.value, 250);
+    payload.deliveryFrequency = state.elements.deliveryFrequency.value;
+    payload.areaDelivery = state.elements.areaDelivery.value;
+    payload.neighborhoodSighting = state.elements.neighborhoodSighting.value;
+    payload.wasillaSighting = state.elements.wasillaSighting.value;
+    payload.message = cleanText(state.elements.optionalMessage.value, 350);
+    payload.nickname = nickname;
+    payload.submittedAnonymously = nickname === "";
+
+    var hasMeaningfulContent = payload.preferredWaterBrand
+      || payload.dislikes
+      || payload.deliveryFrequency
+      || payload.areaDelivery
+      || payload.neighborhoodSighting
+      || payload.wasillaSighting
+      || payload.message;
+
+    if (!hasMeaningfulContent) {
+      throw new Error("Add something in the optional section before sending.");
+    }
+
+    return payload;
+  }
+
+  function isOptionalFieldElement(element) {
+    return element === state.elements.preferredWaterBrand
+      || element === state.elements.dislikes
+      || element === state.elements.deliveryFrequency
+      || element === state.elements.areaDelivery
+      || element === state.elements.neighborhoodSighting
+      || element === state.elements.wasillaSighting
+      || element === state.elements.optionalMessage
+      || element === state.elements.optionalNickname;
   }
 
   function shouldMarkNeedsReview(customSnackOriginal) {
@@ -872,12 +954,12 @@
 
   async function handleVote(snackId) {
     if (!state.supabase) {
-      showFeedback("Voting turns on after the site is connected to Supabase.", true);
+      showFeedback("snack", "Voting turns on after the site is connected to Supabase.", true);
       return;
     }
 
     if (state.localVotes.has(snackId)) {
-      showFeedback("You already used your plus one for that snack.", true);
+      showFeedback("snack", "You already used your plus one for that snack.", true);
       return;
     }
 
@@ -897,19 +979,19 @@
       var result = response.data || {};
 
       if (result.code === "own_snack") {
-        showFeedback("Thanks for the suggestion. You cannot plus one your own snack, but others can vote for it once it is approved.", true);
+        showFeedback("snack", "Thanks for the suggestion. You cannot plus one your own snack, but others can vote for it once it is approved.", true);
       } else if (result.code === "duplicate") {
         rememberLocalVote(snackId);
-        showFeedback(result.message || "You already used your plus one for that snack.", false);
+        showFeedback("snack", result.message || "You already used your plus one for that snack.", false);
       } else {
         rememberLocalVote(snackId);
-        showFeedback(result.message || "Your plus one was counted.", false);
+        showFeedback("snack", result.message || "Your plus one was counted.", false);
       }
 
       await loadStationData();
     } catch (error) {
       console.error("Unable to save vote.", error);
-      showFeedback("That plus one could not be saved right now. Please try again shortly.", true);
+      showFeedback("snack", "That plus one could not be saved right now. Please try again shortly.", true);
     } finally {
       state.votePendingSnackId = "";
       renderSnackGrid(state.snacks);
@@ -932,24 +1014,40 @@
     }
   }
 
-  function clearFormState() {
-    state.elements.form.reset();
+  function clearSnackFormState() {
     state.selectedSnackIds.clear();
+    state.elements.customSnackInput.value = "";
+    state.elements.wantsAdded.value = "";
     resetMatchPanel();
     resetAutoResize(state.elements.wantsAdded);
-    resetAutoResize(state.elements.dislikes);
-    resetAutoResize(state.elements.optionalMessage);
     renderSnackGrid(state.snacks);
   }
 
-  function showFeedback(message, isError) {
-    state.elements.feedbackPanel.classList.remove("hidden");
-    state.elements.feedbackPanel.classList.toggle("error-state", !!isError);
-    state.elements.feedbackMessage.textContent = message;
+  function clearOptionalFormState() {
+    state.elements.preferredWaterBrand.value = "";
+    state.elements.dislikes.value = "";
+    state.elements.deliveryFrequency.value = "";
+    state.elements.areaDelivery.value = "";
+    state.elements.neighborhoodSighting.value = "";
+    state.elements.wasillaSighting.value = "";
+    state.elements.optionalMessage.value = "";
+    state.elements.optionalNickname.value = "";
+    resetAutoResize(state.elements.dislikes);
+    resetAutoResize(state.elements.optionalMessage);
+  }
+
+  function showFeedback(section, message, isError) {
+    var panel = section === "optional" ? state.elements.optionalFeedbackPanel : state.elements.snackFeedbackPanel;
+    var text = section === "optional" ? state.elements.optionalFeedbackMessage : state.elements.snackFeedbackMessage;
+
+    panel.classList.remove("hidden");
+    panel.classList.toggle("error-state", !!isError);
+    text.textContent = message;
   }
 
   function disableSubmit(disabled) {
-    state.elements.submitButton.disabled = !!disabled;
+    state.elements.snackSubmitButton.disabled = !!disabled;
+    state.elements.optionalSubmitButton.disabled = !!disabled;
   }
 
   function showSetupMessage(message) {

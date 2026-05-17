@@ -180,6 +180,55 @@ p {
   text-align: right;
 }
 
+.feedback-form-panel {
+  background: rgba(13, 22, 34, 0.98);
+}
+
+.feedback-form-heading {
+  margin-bottom: 0.8rem;
+}
+
+.feedback-form-heading .small-note {
+  max-width: 13rem;
+}
+
+.feedback-form-layout {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.feedback-block {
+  border: 1px solid rgba(141, 201, 228, 0.14);
+  background: rgba(11, 19, 30, 0.98);
+  padding: 0.82rem 0.85rem;
+}
+
+.feedback-block h3 {
+  margin: 0 0 0.55rem;
+}
+
+.feedback-block .field-group:last-child,
+.notes-block p:last-child {
+  margin-bottom: 0;
+}
+
+.notes-block {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.notes-block p {
+  margin: 0;
+}
+
+.split-submit-row {
+  margin-top: 0;
+}
+
+.feedback-form-layout .feedback-panel {
+  margin-top: 0;
+}
+
 .lead-text {
   color: var(--text);
   font-size: 1.15rem;
