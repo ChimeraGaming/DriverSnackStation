@@ -788,6 +788,13 @@
       }
 
       var result = response.data || {};
+      var successMessage = result.message || "Thanks. Your snack note has been saved.";
+
+      if (payload.customSnackOriginal && result.createdSnackId) {
+        successMessage = "Your snack request was saved and is waiting for approval before it shows in the public list.";
+      } else if (payload.customSnackOriginal && result.matchedSnackId) {
+        successMessage = "Your snack note was saved.";
+      }
 
       if (result.createdSnackId) {
         state.localVotes.delete(result.createdSnackId);
@@ -796,7 +803,7 @@
 
       await sendEmailNotification(payload, result);
       clearFormState();
-      showFeedback(result.message || "Thanks. Your snack note has been saved.", false);
+      showFeedback(successMessage, false);
       await loadStationData();
     } catch (error) {
       console.error("Unable to submit feedback.", error);

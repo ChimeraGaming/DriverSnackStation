@@ -62,41 +62,6 @@ This uses a simple passcode setup for now. Before serious long-term use, real au
 - `admin.js`
 - `supabase-schema.sql`
 
-## Setup Notes For Me
-
-This site is static, so Supabase handles the saved submissions and public trend data.
-
-### Supabase
-
-1. Create a Supabase project.
-2. Open the SQL editor.
-3. Run `supabase-schema.sql`.
-4. Set the admin passcode:
-
-```sql
-select public.set_admin_passcode('replace-this-passcode');
-```
-
-5. Copy the project URL.
-6. Copy the publishable key or legacy anon key.
-7. Paste those values into `index.html` and `admin.html`.
-
-### GitHub Pages
-
-This site is meant to be published from the root of the repo with GitHub Pages.
-
-Expected public URL:
-
-```text
-https://chimeragaming.github.io/DriverSnackStation/
-```
-
-Expected admin URL:
-
-```text
-https://chimeragaming.github.io/DriverSnackStation/admin.html
-```
-
 ## QR Code
 
 Once the live site is up, the public page URL can be turned into a QR code and placed at the snack station so drivers can open it quickly from their phones.
