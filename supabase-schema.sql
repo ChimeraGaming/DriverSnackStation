@@ -310,11 +310,11 @@ begin
     true,
     'Fresh snacks added today',
     'Live updates appear here after the site is connected.',
-    crypt(p_passcode, gen_salt('bf'))
+    extensions.crypt(p_passcode, extensions.gen_salt('bf'))
   )
   on conflict (singleton_key) do update
   set
-    admin_passcode_hash = crypt(p_passcode, gen_salt('bf')),
+    admin_passcode_hash = extensions.crypt(p_passcode, extensions.gen_salt('bf')),
     updated_at = now();
 end;
 $$;
@@ -338,7 +338,7 @@ begin
     return false;
   end if;
 
-  return crypt(p_passcode, v_hash) = v_hash;
+  return extensions.crypt(p_passcode, v_hash) = v_hash;
 end;
 $$;
 
