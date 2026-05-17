@@ -65,25 +65,3 @@ This uses a simple passcode setup for now. Before serious long-term use, real au
 ## QR Code
 
 Once the live site is up, the public page URL can be turned into a QR code and placed at the snack station so drivers can open it quickly from their phones.
-
-## Starter Snacks
-
-The starter snacks currently included are:
-
-- Oreo Cookies
-- Doritos
-- Water
-- Gatorade
-- Powerade
-- Goldfish Crackers
-
-These can be changed later in Supabase or through the admin tools.
-
-## Project Notes
-
-- mobile first layout
-- static site for GitHub Pages
-- vanilla HTML, CSS, and JavaScript
-- Supabase for data storage
-- Hatcher Pass image in the header
-- simple Alaska-style personal look
