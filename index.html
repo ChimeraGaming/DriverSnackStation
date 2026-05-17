@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="stylesheet" href="style.css?v=19">
   <script>
     window.DRIVER_SNACK_CONFIG = {
       supabaseUrl: "https://xcmhhuvcovbjvcabukbu.supabase.co",
@@ -23,7 +23,7 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script defer src="script.js?v=18"></script>
+  <script defer src="script.js?v=20"></script>
 </head>
 <body>
   <main class="page-shell">
@@ -84,9 +84,9 @@
           </section>
 
           <section class="feedback-block">
-            <h3>Missing From Today's Station?</h3>
-            <label class="field-label" for="custom-snack-input">Snack or drink missing today</label>
-            <input id="custom-snack-input" class="text-input" name="customSnack" type="text" maxlength="80" autocomplete="off" placeholder="Type the snack or drink name">
+            <h3>Suggestions</h3>
+            <label class="field-label" for="custom-snack-input">Something you want us to stock later</label>
+            <input id="custom-snack-input" class="text-input" name="customSnack" type="text" maxlength="80" autocomplete="off">
             <div class="match-panel hidden" id="match-panel" aria-live="polite">
               <p class="match-title" id="match-title">Did you mean this snack?</p>
               <div class="match-actions">
@@ -97,12 +97,12 @@
               <div class="option-stack hidden" id="match-options"></div>
             </div>
             <p class="small-note" id="custom-help-text">Names are checked against existing snacks, aliases, and close spellings before a new request is saved.</p>
-            <p class="small-note">If it is brand new, it gets saved first and can be approved later from the admin page.</p>
-            <div class="field-group">
-              <label class="field-label" for="wants-added">Something you want us to stock later</label>
-              <textarea id="wants-added" class="text-area" name="wantsAdded" rows="1" maxlength="250"></textarea>
-            </div>
           </section>
+
+          <div class="submit-row split-submit-row">
+            <button class="primary-button submit-button" id="snack-submit-button" type="submit" data-submit-mode="snack">Submit</button>
+            <p class="small-note">This sends your grabbed snacks and suggestion together.</p>
+          </div>
 
           <section class="feedback-block notes-block">
             <h3>Requests and Notes</h3>
@@ -110,11 +110,6 @@
             <p>For sports drinks, we will most likely stock Gatorade or Powerade depending on what is cheapest or easiest to buy at the time.</p>
             <p>Water is usually easier for us to stock. If you have a favorite bottled water brand, let us know. The most popular request may win, but it needs to be something sold in a large pack, not single bottles.</p>
           </section>
-
-          <div class="submit-row split-submit-row">
-            <button class="primary-button submit-button" id="snack-submit-button" type="submit" data-submit-mode="snack">Submit Snack Picks</button>
-            <p class="small-note">Use this for what you grabbed and anything missing from today's station.</p>
-          </div>
 
           <div class="feedback-panel hidden" id="snack-feedback-panel" aria-live="polite">
             <h3>Thanks</h3>

@@ -110,6 +110,7 @@
     state.sessionId = getOrCreateSessionId();
     state.localVotes = getStoredVoteSet();
     cacheElements();
+    resetOptionalSelects();
     wireEvents();
     initializeSupabase();
     initializeEmail();
@@ -136,7 +137,6 @@
       snackSubmitButton: document.getElementById("snack-submit-button"),
       optionalSubmitButton: document.getElementById("optional-submit-button"),
       preferredWaterBrand: document.getElementById("preferred-water-brand"),
-      wantsAdded: document.getElementById("wants-added"),
       dislikes: document.getElementById("dislikes"),
       deliveryFrequency: document.getElementById("delivery-frequency"),
       areaDelivery: document.getElementById("area-delivery"),
@@ -179,7 +179,6 @@
     state.elements.matchKeepButton.addEventListener("click", handleKeepTypedSnack);
     state.elements.matchMoreButton.addEventListener("click", handleShowMoreMatches);
     state.elements.refreshButton.addEventListener("click", loadStationData);
-    wireAutoResize(state.elements.wantsAdded);
     wireAutoResize(state.elements.dislikes);
     wireAutoResize(state.elements.optionalMessage);
   }
@@ -449,7 +448,7 @@
   function renderTrendList(panel, container, items, labelKey, valueKey) {
     clearElement(container);
 
-    var filteredItems = filterPositiveItems(items, valueKey);
+    var filteredItems = getPositiveItems(items, valueKey);
     if (!filteredItems.length) {
       togglePanel(panel, false);
       return;
@@ -494,7 +493,7 @@
   function renderStatCards(panel, container, cards) {
     clearElement(container);
 
-    var filteredCards = filterPositiveItems(cards, "value");
+    var filteredCards = getPositiveItems(cards, "value");
     if (!filteredCards.length) {
       togglePanel(panel, false);
       return;
@@ -573,9 +572,18 @@
     container.appendChild(fragment);
   }
 
-  function filterPositiveItems(items, valueKey) {
+  function getPositiveItems(items, valueKey) {
     return (Array.isArray(items) ? items : []).filter(function (item) {
       return Number(item && item[valueKey]) > 0;
+    }).sort(function (left, right) {
+      var leftValue = Number(left && left[valueKey]) || 0;
+      var rightValue = Number(right && right[valueKey]) || 0;
+
+      if (rightValue !== leftValue) {
+        return rightValue - leftValue;
+      }
+
+      return String(left && (left.title || left.label) || "").localeCompare(String(right && (right.title || right.label) || ""));
     });
   }
 
@@ -880,12 +888,11 @@
     payload.customSnackNormalized = normalizeSnackText(customSnackOriginal);
     payload.matchedSnackId = state.customDecision === "matched-existing" && state.selectedMatch ? state.selectedMatch.id : null;
     payload.customSnackDecision = state.customDecision;
-    payload.wantsAdded = cleanText(state.elements.wantsAdded.value, 250);
     payload.needsReview = shouldMarkNeedsReview(customSnackOriginal);
 
-    var hasMeaningfulContent = payload.selectedSnackIds.length || payload.customSnackOriginal || payload.wantsAdded;
+    var hasMeaningfulContent = payload.selectedSnackIds.length || payload.customSnackOriginal;
     if (!hasMeaningfulContent) {
-      throw new Error("Please pick a snack, add a missing snack, or tell us what to stock later before sending.");
+      throw new Error("Please pick a snack or add a suggestion before sending.");
     }
 
     return payload;
@@ -1017,23 +1024,31 @@
   function clearSnackFormState() {
     state.selectedSnackIds.clear();
     state.elements.customSnackInput.value = "";
-    state.elements.wantsAdded.value = "";
     resetMatchPanel();
-    resetAutoResize(state.elements.wantsAdded);
     renderSnackGrid(state.snacks);
   }
 
   function clearOptionalFormState() {
     state.elements.preferredWaterBrand.value = "";
     state.elements.dislikes.value = "";
-    state.elements.deliveryFrequency.value = "";
-    state.elements.areaDelivery.value = "";
-    state.elements.neighborhoodSighting.value = "";
-    state.elements.wasillaSighting.value = "";
+    resetOptionalSelects();
     state.elements.optionalMessage.value = "";
     state.elements.optionalNickname.value = "";
     resetAutoResize(state.elements.dislikes);
     resetAutoResize(state.elements.optionalMessage);
+  }
+
+  function resetOptionalSelects() {
+    resetSelectToPlaceholder(state.elements.deliveryFrequency);
+    resetSelectToPlaceholder(state.elements.areaDelivery);
+    resetSelectToPlaceholder(state.elements.neighborhoodSighting);
+    resetSelectToPlaceholder(state.elements.wasillaSighting);
+  }
+
+  function resetSelectToPlaceholder(select) {
+    if (select) {
+      select.value = "";
+    }
   }
 
   function showFeedback(section, message, isError) {
