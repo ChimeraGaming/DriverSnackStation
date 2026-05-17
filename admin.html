@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b14">
+  <title>Driver Snack Station Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=15">
+  <script>
+    window.DRIVER_SNACK_CONFIG = {
+      supabaseUrl: "YOUR_SUPABASE_URL",
+      supabaseAnonKey: "YOUR_SUPABASE_ANON_KEY"
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="admin.js?v=15"></script>
+</head>
+<body class="admin-body">
+  <main class="page-shell">
+    <section class="page-frame admin-frame">
+      <header class="panel admin-header">
+        <p class="hero-kicker">Driver Snack Station</p>
+        <h1>Admin</h1>
+        <p>Simple moderation page for snacks, submissions, comments, trends, and station status.</p>
+      </header>
+
+      <section class="panel" id="admin-setup-panel">
+        <h2>Passcode Gate</h2>
+        <p>Enter the admin passcode you set in Supabase.</p>
+        <form id="admin-gate-form" class="inline-form">
+          <label class="field-label" for="admin-passcode">Admin passcode</label>
+          <input id="admin-passcode" class="text-input" name="adminPasscode" type="password" autocomplete="current-password" placeholder="Enter passcode">
+          <button class="primary-button" type="submit">Unlock</button>
+        </form>
+        <p class="small-note" id="admin-gate-status">Admin tools stay locked until Supabase is configured and the passcode is accepted.</p>
+      </section>
+
+      <section class="panel hidden" id="admin-app">
+        <div class="panel-heading">
+          <h2>Station Status</h2>
+          <button class="ghost-button" id="admin-refresh-button" type="button">Refresh</button>
+        </div>
+        <form id="status-form" class="inline-form">
+          <label class="field-label" for="station-status-input">Current station status</label>
+          <input id="station-status-input" class="text-input" type="text" maxlength="120" placeholder="Update current status">
+          <button class="secondary-button" type="submit">Save Status</button>
+        </form>
+        <p class="small-note" id="admin-status-message">No changes yet.</p>
+      </section>
+
+      <section class="panel hidden" id="admin-summary-panel">
+        <h2>Trend Summary</h2>
+        <div class="stat-grid" id="admin-summary-grid"></div>
+      </section>
+
+      <section class="panel hidden" id="pending-snacks-panel">
+        <div class="panel-heading">
+          <h2>Pending Snacks</h2>
+          <p class="small-note">Approve, hide, rename, merge, or add aliases.</p>
+        </div>
+        <div class="admin-list" id="pending-snacks-list"></div>
+      </section>
+
+      <section class="panel hidden" id="review-panel">
+        <h2>Needs Review</h2>
+        <div class="admin-list" id="review-list"></div>
+      </section>
+
+      <section class="panel hidden" id="catalog-panel">
+        <div class="panel-heading">
+          <h2>Snack Catalog</h2>
+          <button class="secondary-button" id="export-csv-button" type="button">Export CSV</button>
+        </div>
+        <div class="admin-list" id="catalog-list"></div>
+      </section>
+
+      <section class="panel hidden" id="comments-panel">
+        <h2>Public Comments</h2>
+        <div class="admin-list" id="comments-list"></div>
+      </section>
+
+      <section class="panel hidden" id="submissions-panel">
+        <h2>Recent Submissions</h2>
+        <div class="admin-list" id="submissions-list"></div>
+      </section>
+
+      <footer class="page-footer">
+        <p><a href="index.html">Back to driver page</a></p>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
