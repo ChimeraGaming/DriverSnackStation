@@ -100,6 +100,7 @@
     selectedMatch: null,
     customDecision: "none",
     votePendingSnackId: "",
+    chartInstances: {},
     pendingSubmitMode: "snack",
     elements: {}
   };
@@ -446,21 +447,19 @@
   }
 
   function renderTrendList(panel, container, items, labelKey, valueKey) {
-    clearElement(container);
-
     var filteredItems = getPositiveItems(items, valueKey);
     if (!filteredItems.length) {
+      destroyChartForContainer(container);
+      clearElement(container);
       togglePanel(panel, false);
       return;
     }
 
     togglePanel(panel, true);
-    renderChartRows(container, filteredItems, labelKey, valueKey);
+    renderDataChart(container, filteredItems, labelKey, valueKey);
   }
 
   function renderSightings(sightings) {
-    clearElement(state.elements.sightingsGrid);
-
     var neighborhood = sightings && sightings.neighborhood ? sightings.neighborhood : {};
     var wasilla = sightings && sightings.wasilla ? sightings.wasilla : {};
 
@@ -477,8 +476,6 @@
   }
 
   function renderCommunityStats(stats) {
-    clearElement(state.elements.communityStats);
-
     var cards = [
       { label: "Total submissions", value: stats.totalSubmissions || 0 },
       { label: "Grab reports", value: stats.totalGrabReports || 0 },
@@ -491,16 +488,16 @@
   }
 
   function renderStatCards(panel, container, cards) {
-    clearElement(container);
-
     var filteredCards = getPositiveItems(cards, "value");
     if (!filteredCards.length) {
+      destroyChartForContainer(container);
+      clearElement(container);
       togglePanel(panel, false);
       return;
     }
 
     togglePanel(panel, true);
-    renderChartRows(container, filteredCards, "label", "value");
+    renderDataChart(container, filteredCards, "label", "value");
   }
 
   function renderComments(comments) {
@@ -532,6 +529,108 @@
     });
 
     state.elements.publicComments.appendChild(fragment);
+  }
+
+  function renderDataChart(container, items, labelKey, valueKey) {
+    destroyChartForContainer(container);
+    clearElement(container);
+
+    if (!window.Chart || typeof window.Chart !== "function") {
+      renderChartRows(container, items, labelKey, valueKey);
+      return;
+    }
+
+    var shell = document.createElement("div");
+    shell.className = "chart-shell";
+    shell.style.height = getChartHeight(items.length);
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "chart-canvas";
+    shell.appendChild(canvas);
+    container.appendChild(shell);
+
+    state.chartInstances[container.id] = new window.Chart(canvas.getContext("2d"), {
+      type: "bar",
+      data: {
+        labels: items.map(function (item) {
+          return item[labelKey] || "Unknown";
+        }),
+        datasets: [{
+          data: items.map(function (item) {
+            return Number(item[valueKey]) || 0;
+          }),
+          backgroundColor: items.map(function (_, index) {
+            return getChartColor(index);
+          }),
+          borderWidth: 0,
+          borderRadius: 4,
+          barThickness: 18,
+          maxBarThickness: 18
+        }]
+      },
+      options: {
+        animation: false,
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "rgba(9, 15, 24, 0.94)",
+            titleColor: "#edf4fa",
+            bodyColor: "#edf4fa",
+            borderColor: "rgba(141, 201, 228, 0.22)",
+            borderWidth: 1
+          }
+        },
+        layout: {
+          padding: {
+            top: 6,
+            right: 10,
+            bottom: 4,
+            left: 4
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: {
+              color: "#9fb6c8",
+              precision: 0,
+              stepSize: 1,
+              font: {
+                size: 11
+              }
+            },
+            border: {
+              color: "rgba(141, 201, 228, 0.18)"
+            },
+            grid: {
+              color: "rgba(141, 201, 228, 0.12)"
+            }
+          },
+          y: {
+            ticks: {
+              color: "#edf4fa",
+              font: {
+                size: 12,
+                weight: "700"
+              }
+            },
+            border: {
+              color: "rgba(141, 201, 228, 0.18)"
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
   }
 
   function renderChartRows(container, items, labelKey, valueKey) {
@@ -572,6 +671,15 @@
     container.appendChild(fragment);
   }
 
+  function destroyChartForContainer(container) {
+    if (!container || !container.id || !state.chartInstances[container.id]) {
+      return;
+    }
+
+    state.chartInstances[container.id].destroy();
+    delete state.chartInstances[container.id];
+  }
+
   function getPositiveItems(items, valueKey) {
     return (Array.isArray(items) ? items : []).filter(function (item) {
       return Number(item && item[valueKey]) > 0;
@@ -591,6 +699,23 @@
     return items.reduce(function (maxValue, item) {
       return Math.max(maxValue, Number(item && item[valueKey]) || 0);
     }, 0);
+  }
+
+  function getChartHeight(itemCount) {
+    return Math.max(170, itemCount * 42 + 34) + "px";
+  }
+
+  function getChartColor(index) {
+    var palette = [
+      "#8dbce8",
+      "#78d5c6",
+      "#9bd18e",
+      "#f0b15b",
+      "#de7663",
+      "#d8d16c"
+    ];
+
+    return palette[index % palette.length];
   }
 
   function getChartWidth(value, maxValue) {
