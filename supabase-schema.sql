@@ -274,12 +274,27 @@ insert into public.snack_items (
   needs_review
 )
 values
-  ('Oreo Cookies', 'oreo cookies', 'Snacks', array['oreo', 'oreos'], 0, true, false, false, false),
+  ('Oreo Cookies', 'oreo cookies', 'Cookies', array['oreo', 'oreos'], 0, true, false, false, false),
   ('Doritos', 'doritos', 'Chips', array['dorritos'], 0, true, false, false, false),
-  ('Water', 'water', 'Drinks', array['bottled water', 'h20'], 0, true, false, false, false),
+  ('Lay''s Chips', 'lays chips', 'Chips', array['lays', 'potato chips', 'lays potato chips'], 0, true, false, false, false),
+  ('Cheetos Crunchy', 'cheetos crunchy', 'Chips', array['cheetos', 'crunchy cheetos'], 0, true, false, false, false),
+  ('Mini Chips Ahoy', 'mini chips ahoy', 'Cookies', array['chips ahoy', 'mini chips ahoy cookies'], 0, true, false, false, false),
+  ('Teddy Grahams', 'teddy grahams', 'Cookies', array['teddy grahams honey', 'graham snacks'], 0, true, false, false, false),
+  ('Nutter Butter Bites', 'nutter butter bites', 'Cookies', array['nutter butter', 'peanut butter bites'], 0, true, false, false, false),
+  ('Goldfish Crackers', 'goldfish crackers', 'Crackers', array['goldfish'], 0, true, false, false, false),
+  ('Ritz Bits', 'ritz bits', 'Crackers', array['ritz bits cheese', 'ritz bits peanut butter'], 0, true, false, false, false),
+  ('Cheez-It Crackers', 'cheez it crackers', 'Crackers', array['cheez it', 'cheezits', 'cheez itz'], 0, true, false, false, false),
+  ('Mott''s Fruit Snacks', 'motts fruit snacks', 'Other Snack', array['fruit snacks', 'motts', 'motts assorted fruit'], 0, true, false, false, false),
+  ('Gushers', 'gushers', 'Other Snack', array['fruit gushers'], 0, true, false, false, false),
+  ('Fruit Roll-Ups', 'fruit roll ups', 'Other Snack', array['fruit rollups'], 0, true, false, false, false),
+  ('Fruit by the Foot', 'fruit by the foot', 'Other Snack', array['fruit by foot'], 0, true, false, false, false),
+  ('Rice Krispies Treats', 'rice krispies treats', 'Other Snack', array['rice krispie treats', 'rice crispy treats'], 0, true, false, false, false),
+  ('Water', 'water', 'Water', array['bottled water', 'h20'], 0, true, false, false, false),
   ('Gatorade', 'gatorade', 'Sports Drink', array['gatoraid', 'gatoraide'], 0, true, false, false, false),
   ('Powerade', 'powerade', 'Sports Drink', array['poweraid', 'poweraide'], 0, true, false, false, false),
-  ('Goldfish Crackers', 'goldfish crackers', 'Crackers', array['goldfish'], 0, true, false, false, false)
+  ('Juice Boxes', 'juice boxes', 'Other Drink', array['juice box', 'juice pouches'], 0, true, false, false, false),
+  ('Iced Tea', 'iced tea', 'Other Drink', array['tea', 'sweet tea'], 0, true, false, false, false),
+  ('Lemonade', 'lemonade', 'Other Drink', array['strawberry lemonade'], 0, true, false, false, false)
 on conflict (normalized_title) do update
 set
   title = excluded.title,
@@ -310,11 +325,11 @@ begin
     true,
     'Fresh snacks added today',
     'Live updates appear here after the site is connected.',
-    crypt(p_passcode, gen_salt('bf'))
+    extensions.crypt(p_passcode, extensions.gen_salt('bf'))
   )
   on conflict (singleton_key) do update
   set
-    admin_passcode_hash = crypt(p_passcode, gen_salt('bf')),
+    admin_passcode_hash = extensions.crypt(p_passcode, extensions.gen_salt('bf')),
     updated_at = now();
 end;
 $$;
@@ -338,7 +353,7 @@ begin
     return false;
   end if;
 
-  return crypt(p_passcode, v_hash) = v_hash;
+  return extensions.crypt(p_passcode, v_hash) = v_hash;
 end;
 $$;
 
@@ -466,10 +481,20 @@ begin
   ) as item(item_value);
 
   select
-    coalesce(array_agg(title order by title), '{}'::text[])
+    coalesce(array_agg(trim(item_value)), '{}'::text[])
   into v_selected_snack_titles
-  from public.snack_items
-  where id = any(v_selected_snack_ids);
+  from jsonb_array_elements_text(
+    coalesce(jsonb_extract_path(p_payload, 'selectedSnackTitles'), '[]'::jsonb)
+  ) as item(item_value)
+  where trim(coalesce(item_value, '')) <> '';
+
+  if coalesce(array_length(v_selected_snack_titles, 1), 0) = 0 then
+    select
+      coalesce(array_agg(title order by title), '{}'::text[])
+    into v_selected_snack_titles
+    from public.snack_items
+    where id = any(v_selected_snack_ids);
+  end if;
 
   if coalesce(array_length(v_selected_snack_titles, 1), 0) = 0 and v_custom_snack_original is null and v_preferred_water_brand is null and v_wants_added is null and v_dislikes is null and v_message is null then
     raise exception 'Submission needs at least one snack choice or note.';

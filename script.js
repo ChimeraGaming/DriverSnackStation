@@ -6,7 +6,7 @@
       id: "fallback-oreo",
       title: "Oreo Cookies",
       normalizedTitle: "oreo cookies",
-      category: "Snacks",
+      category: "Cookies",
       aliases: ["oreo", "oreos"],
       voteCount: 0,
       approved: true,
@@ -32,7 +32,7 @@
       id: "fallback-water",
       title: "Water",
       normalizedTitle: "water",
-      category: "Drinks",
+      category: "Water",
       aliases: ["bottled water", "h20"],
       voteCount: 0,
       approved: true,
@@ -79,12 +79,297 @@
       needsReview: false,
       userHasVoted: false,
       isOwnSubmission: false
+    },
+    {
+      id: "fallback-lays",
+      title: "Lay's Chips",
+      normalizedTitle: "lays chips",
+      category: "Chips",
+      aliases: ["lays", "potato chips", "lays potato chips"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-cheetos",
+      title: "Cheetos Crunchy",
+      normalizedTitle: "cheetos crunchy",
+      category: "Chips",
+      aliases: ["cheetos", "crunchy cheetos"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-chips-ahoy",
+      title: "Mini Chips Ahoy",
+      normalizedTitle: "mini chips ahoy",
+      category: "Cookies",
+      aliases: ["chips ahoy", "mini chips ahoy cookies"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-teddy-grahams",
+      title: "Teddy Grahams",
+      normalizedTitle: "teddy grahams",
+      category: "Cookies",
+      aliases: ["teddy grahams honey", "graham snacks"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-nutter-butter-bites",
+      title: "Nutter Butter Bites",
+      normalizedTitle: "nutter butter bites",
+      category: "Cookies",
+      aliases: ["nutter butter", "peanut butter bites"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-ritz-bits",
+      title: "Ritz Bits",
+      normalizedTitle: "ritz bits",
+      category: "Crackers",
+      aliases: ["ritz bits cheese", "ritz bits peanut butter"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-cheez-it",
+      title: "Cheez-It Crackers",
+      normalizedTitle: "cheez it crackers",
+      category: "Crackers",
+      aliases: ["cheez it", "cheezits", "cheez itz"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-fruit-snacks",
+      title: "Mott's Fruit Snacks",
+      normalizedTitle: "motts fruit snacks",
+      category: "Other Snack",
+      aliases: ["fruit snacks", "motts", "motts assorted fruit"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-gushers",
+      title: "Gushers",
+      normalizedTitle: "gushers",
+      category: "Other Snack",
+      aliases: ["fruit gushers"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-fruit-roll-ups",
+      title: "Fruit Roll-Ups",
+      normalizedTitle: "fruit roll ups",
+      category: "Other Snack",
+      aliases: ["fruit rollups"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-fruit-by-the-foot",
+      title: "Fruit by the Foot",
+      normalizedTitle: "fruit by the foot",
+      category: "Other Snack",
+      aliases: ["fruit by foot"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-rice-krispies",
+      title: "Rice Krispies Treats",
+      normalizedTitle: "rice krispies treats",
+      category: "Other Snack",
+      aliases: ["rice krispie treats", "rice crispy treats"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-juice-boxes",
+      title: "Juice Boxes",
+      normalizedTitle: "juice boxes",
+      category: "Other Drink",
+      aliases: ["juice box", "juice pouches"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-iced-tea",
+      title: "Iced Tea",
+      normalizedTitle: "iced tea",
+      category: "Other Drink",
+      aliases: ["tea", "sweet tea"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
+    },
+    {
+      id: "fallback-lemonade",
+      title: "Lemonade",
+      normalizedTitle: "lemonade",
+      category: "Other Drink",
+      aliases: ["strawberry lemonade"],
+      voteCount: 0,
+      approved: true,
+      createdByUser: false,
+      needsReview: false,
+      userHasVoted: false,
+      isOwnSubmission: false
     }
   ];
 
   var STORAGE_KEYS = {
     sessionId: "driverSnackStationSessionId",
     votes: "driverSnackStationVotes"
+  };
+
+  var PICKER_VARIANTS = {
+    "doritos": {
+      variantLabel: "Flavor",
+      variants: ["Nacho Cheese", "Cool Ranch", "Spicy Sweet Chili", "Spicy Nacho", "Salsa Verde"]
+    },
+    "lay's chips": {
+      variantLabel: "Flavor",
+      variants: ["Classic", "Barbecue", "Sour Cream and Onion", "Salt and Vinegar"]
+    },
+    "cheetos crunchy": {
+      variantLabel: "Flavor",
+      variants: ["Crunchy Cheese", "Flamin' Hot"]
+    },
+    "oreo cookies": {
+      variantLabel: "Style",
+      variants: ["Original", "Double Stuf", "Golden", "Thins"]
+    },
+    "mini chips ahoy": {
+      variantLabel: "Style",
+      variants: ["Original", "Chewy", "Rainbow"]
+    },
+    "teddy grahams": {
+      variantLabel: "Flavor",
+      variants: ["Honey", "Chocolate", "Chocolate Chip", "Cinnamon"]
+    },
+    "nutter butter bites": {
+      variantLabel: "Style",
+      variants: ["Original", "Fudge Dipped"]
+    },
+    "goldfish crackers": {
+      variantLabel: "Flavor",
+      variants: ["Cheddar", "Original"]
+    },
+    "ritz bits": {
+      variantLabel: "Flavor",
+      variants: ["Cheese", "Peanut Butter"]
+    },
+    "cheez it crackers": {
+      variantLabel: "Flavor",
+      variants: ["Original", "White Cheddar", "Extra Toasty"]
+    },
+    "motts fruit snacks": {
+      variantLabel: "Type",
+      variants: ["Assorted Fruit", "Berry", "Tropical"]
+    },
+    "gushers": {
+      variantLabel: "Flavor",
+      variants: ["Tropical", "Strawberry Splash"]
+    },
+    "fruit roll ups": {
+      variantLabel: "Flavor",
+      variants: ["Strawberry", "Tropical Tie-Dye", "Berry"]
+    },
+    "fruit by the foot": {
+      variantLabel: "Flavor",
+      variants: ["Strawberry Tie-Dye", "Berry Tie-Dye", "Blue Raspberry"]
+    },
+    "rice krispies treats": {
+      variantLabel: "Style",
+      variants: ["Original", "Chocolatey Drizzle", "Rainbow"]
+    },
+    "gatorade": {
+      typeLabel: "Type",
+      types: {
+        "Thirst Quencher": ["Fruit Punch", "Lemon Lime", "Orange", "Glacier Freeze", "Riptide Rush"],
+        "Zero": ["Lemon Lime", "Fruit Punch", "Glacier Freeze", "Glacier Cherry"],
+        "Gatorlyte": ["Orange", "Cherry Lime", "Strawberry Kiwi"]
+      }
+    },
+    "powerade": {
+      typeLabel: "Type",
+      types: {
+        "Powerade": ["Mixed Berry", "Fruit Punch", "Orange", "Grape", "Melon Pineapple", "Strawberry Lemonade"],
+        "Powerade Zero": ["Blue Raspberry", "Fruit Punch", "Grape", "Orange"]
+      }
+    },
+    "juice boxes": {
+      variantLabel: "Flavor",
+      variants: ["Apple Juice", "Fruit Punch", "Mixed Berry"]
+    },
+    "iced tea": {
+      variantLabel: "Flavor",
+      variants: ["Sweet Tea", "Lemon Tea", "Peach Tea"]
+    },
+    "lemonade": {
+      variantLabel: "Flavor",
+      variants: ["Classic Lemonade", "Strawberry Lemonade"]
+    }
   };
 
   var state = {
@@ -95,11 +380,19 @@
     snacks: [],
     snackMap: {},
     selectedSnackIds: new Set(),
+    selectedDisplayBySnackId: {},
+    selectedQuantityBySnackId: {},
+    pickerState: {
+      snacks: { category: "", snackId: "", subtype: "", flavor: "" },
+      drinks: { category: "", snackId: "", subtype: "", flavor: "" }
+    },
     localVotes: new Set(),
     latestMatches: [],
     selectedMatch: null,
     customDecision: "none",
     votePendingSnackId: "",
+    chartInstances: {},
+    pendingSubmitMode: "snack",
     elements: {}
   };
 
@@ -109,6 +402,7 @@
     state.sessionId = getOrCreateSessionId();
     state.localVotes = getStoredVoteSet();
     cacheElements();
+    resetOptionalSelects();
     wireEvents();
     initializeSupabase();
     initializeEmail();
@@ -132,9 +426,14 @@
       matchKeepButton: document.getElementById("match-keep-button"),
       matchMoreButton: document.getElementById("match-more-button"),
       form: document.getElementById("snack-form"),
-      submitButton: document.getElementById("submit-button"),
+      selectionSubmitButton: document.getElementById("selection-submit-button"),
+      snackSubmitButton: document.getElementById("snack-submit-button"),
+      selectionFeedbackPanel: document.getElementById("selection-feedback-panel"),
+      selectionFeedbackMessage: document.getElementById("selection-feedback-message"),
+      suggestionToggleButton: document.getElementById("suggestion-toggle-button"),
+      suggestionSectionContent: document.getElementById("suggestion-section-content"),
+      optionalSubmitButton: document.getElementById("optional-submit-button"),
       preferredWaterBrand: document.getElementById("preferred-water-brand"),
-      wantsAdded: document.getElementById("wants-added"),
       dislikes: document.getElementById("dislikes"),
       deliveryFrequency: document.getElementById("delivery-frequency"),
       areaDelivery: document.getElementById("area-delivery"),
@@ -142,8 +441,12 @@
       wasillaSighting: document.getElementById("wasilla-sighting"),
       optionalMessage: document.getElementById("optional-message"),
       optionalNickname: document.getElementById("optional-nickname"),
-      feedbackPanel: document.getElementById("feedback-panel"),
-      feedbackMessage: document.getElementById("feedback-message"),
+      snackFeedbackPanel: document.getElementById("snack-feedback-panel"),
+      snackFeedbackMessage: document.getElementById("snack-feedback-message"),
+      optionalToggleButton: document.getElementById("optional-toggle-button"),
+      optionalSectionContent: document.getElementById("optional-section-content"),
+      optionalFeedbackPanel: document.getElementById("optional-feedback-panel"),
+      optionalFeedbackMessage: document.getElementById("optional-feedback-message"),
       refreshButton: document.getElementById("refresh-status-button"),
       recentGrabs: document.getElementById("recent-grabs"),
       recentGrabsPanel: document.getElementById("recent-grabs-panel"),
@@ -164,12 +467,26 @@
 
   function wireEvents() {
     state.elements.form.addEventListener("submit", handleFormSubmit);
+    state.elements.selectionSubmitButton.addEventListener("click", function () {
+      state.pendingSubmitMode = "selection";
+    });
+    state.elements.snackSubmitButton.addEventListener("click", function () {
+      state.pendingSubmitMode = "snack";
+      setSuggestionSectionOpen(true);
+    });
+    state.elements.optionalSubmitButton.addEventListener("click", function () {
+      state.pendingSubmitMode = "optional";
+      setOptionalSectionOpen(true);
+    });
+    state.elements.suggestionToggleButton.addEventListener("click", toggleSuggestionSection);
+    state.elements.optionalToggleButton.addEventListener("click", toggleOptionalSection);
     state.elements.customSnackInput.addEventListener("input", handleCustomInputChange);
     state.elements.matchYesButton.addEventListener("click", handleUseSuggestedSnack);
     state.elements.matchKeepButton.addEventListener("click", handleKeepTypedSnack);
     state.elements.matchMoreButton.addEventListener("click", handleShowMoreMatches);
-    state.elements.refreshButton.addEventListener("click", loadStationData);
-    wireAutoResize(state.elements.wantsAdded);
+    if (state.elements.refreshButton) {
+      state.elements.refreshButton.addEventListener("click", loadStationData);
+    }
     wireAutoResize(state.elements.dislikes);
     wireAutoResize(state.elements.optionalMessage);
   }
@@ -222,7 +539,9 @@
       return;
     }
 
-    state.elements.refreshButton.disabled = true;
+    if (state.elements.refreshButton) {
+      state.elements.refreshButton.disabled = true;
+    }
 
     try {
       var response = await state.supabase.rpc("get_public_station_snapshot", {
@@ -241,13 +560,15 @@
       showSetupMessage("Live data could not be loaded right now. The starter snack list is still shown below.");
       renderSnapshot(buildFallbackSnapshot());
     } finally {
-      state.elements.refreshButton.disabled = false;
+      if (state.elements.refreshButton) {
+        state.elements.refreshButton.disabled = false;
+      }
     }
   }
 
   function normalizeSnapshot(snapshot) {
     var safeSnapshot = snapshot || {};
-    safeSnapshot.snacks = Array.isArray(safeSnapshot.snacks) ? safeSnapshot.snacks : DEFAULT_SNACKS.slice();
+    safeSnapshot.snacks = mergeStarterSnacks(Array.isArray(safeSnapshot.snacks) ? safeSnapshot.snacks : []);
     safeSnapshot.recentGrabs = Array.isArray(safeSnapshot.recentGrabs) ? safeSnapshot.recentGrabs : [];
     safeSnapshot.popularSnacks = Array.isArray(safeSnapshot.popularSnacks) ? safeSnapshot.popularSnacks : [];
     safeSnapshot.requestedSnacks = Array.isArray(safeSnapshot.requestedSnacks) ? safeSnapshot.requestedSnacks : [];
@@ -262,7 +583,7 @@
     return {
       stationStatus: "Fresh snacks added today",
       stationStatusNote: "Live updates appear here after Supabase is connected.",
-      snacks: DEFAULT_SNACKS.slice(),
+      snacks: mergeStarterSnacks([]),
       recentGrabs: [],
       popularSnacks: [],
       requestedSnacks: [],
@@ -289,8 +610,12 @@
       state.snackMap[snack.id] = snack;
     });
 
-    state.elements.stationStatus.textContent = snapshot.stationStatus || "Fresh snacks added today";
-    state.elements.stationStatusNote.textContent = snapshot.stationStatusNote || "Live updates come from Supabase when the site is connected.";
+    if (state.elements.stationStatus) {
+      state.elements.stationStatus.textContent = snapshot.stationStatus || "Fresh snacks added today";
+    }
+    if (state.elements.stationStatusNote) {
+      state.elements.stationStatusNote.textContent = snapshot.stationStatusNote || "Live updates come from Supabase when the site is connected.";
+    }
 
     renderSnackGrid(snapshot.snacks);
     renderTrendList(state.elements.recentGrabsPanel, state.elements.recentGrabs, snapshot.recentGrabs, "title", "count");
@@ -306,6 +631,47 @@
     }
   }
 
+  function mergeStarterSnacks(snacks) {
+    var mergedByKey = {};
+    var mergedList = [];
+
+    snacks.forEach(function (snack) {
+      var identityKey = getSnackIdentityKey(snack);
+      if (!identityKey || mergedByKey[identityKey]) {
+        return;
+      }
+      mergedByKey[identityKey] = true;
+      mergedList.push(snack);
+    });
+
+    DEFAULT_SNACKS.forEach(function (snack) {
+      var identityKey = getSnackIdentityKey(snack);
+      if (!identityKey || mergedByKey[identityKey]) {
+        return;
+      }
+      mergedByKey[identityKey] = true;
+      mergedList.push(snack);
+    });
+
+    return mergedList;
+  }
+
+  function getSnackIdentityKey(snack) {
+    if (!snack) {
+      return "";
+    }
+
+    if (snack.normalizedTitle) {
+      return String(snack.normalizedTitle).toLowerCase();
+    }
+
+    if (snack.title) {
+      return normalizeSnackText(snack.title);
+    }
+
+    return "";
+  }
+
   function renderSnackGrid(snacks) {
     clearElement(state.elements.snackGrid);
 
@@ -318,8 +684,8 @@
     var pickerGrid = document.createElement("div");
     pickerGrid.className = "grabbed-picker-grid";
 
-    pickerGrid.appendChild(createGrabbedPickerPanel("Snacks", "Select a snack", groupedSnacks.snacks));
-    pickerGrid.appendChild(createGrabbedPickerPanel("Drinks", "Select a drink", groupedSnacks.drinks));
+    pickerGrid.appendChild(createGrabbedPickerPanel("snacks", "Snacks", groupedSnacks.snacks));
+    pickerGrid.appendChild(createGrabbedPickerPanel("drinks", "Drinks", groupedSnacks.drinks));
 
     state.elements.snackGrid.appendChild(pickerGrid);
   }
@@ -350,7 +716,7 @@
       || normalizedCategory.indexOf("sports") !== -1;
   }
 
-  function createGrabbedPickerPanel(groupTitle, placeholder, snacks) {
+  function createGrabbedPickerPanel(panelKey, groupTitle, snacks) {
     var panel = document.createElement("section");
     panel.className = "grabbed-picker-panel";
 
@@ -359,33 +725,29 @@
     heading.textContent = groupTitle;
     panel.appendChild(heading);
 
-    var select = document.createElement("select");
-    select.className = "select-input grabbed-select";
-    select.setAttribute("aria-label", groupTitle);
+    panel.appendChild(createPickerSelect(
+      getPanelCategoryLabel(panelKey),
+      getPanelCategoryPlaceholder(panelKey),
+      getPanelCategoryOptions(panelKey),
+      state.pickerState[panelKey].category,
+      function (value) {
+        state.pickerState[panelKey].category = value;
+        state.pickerState[panelKey].snackId = "";
+        state.pickerState[panelKey].subtype = "";
+        state.pickerState[panelKey].flavor = "";
 
-    var placeholderOption = document.createElement("option");
-    placeholderOption.value = "";
-    placeholderOption.textContent = placeholder;
-    select.appendChild(placeholderOption);
+        if (panelKey === "drinks" && value === "water") {
+          addSingleCategorySelection(panelKey, snacks, value);
+          return;
+        }
 
-    snacks.forEach(function (snack) {
-      var option = document.createElement("option");
-      option.value = snack.id;
-      option.textContent = snack.title;
-      option.disabled = state.selectedSnackIds.has(snack.id);
-      select.appendChild(option);
-    });
-
-    select.addEventListener("change", function () {
-      if (!select.value) {
-        return;
+        renderSnackGrid(state.snacks);
       }
+    ));
 
-      state.selectedSnackIds.add(select.value);
-      renderSnackGrid(state.snacks);
-    });
-
-    panel.appendChild(select);
+    if (state.pickerState[panelKey].category) {
+      appendItemSelect(panel, panelKey, snacks);
+    }
 
     var selectedItems = snacks.filter(function (snack) {
       return state.selectedSnackIds.has(snack.id);
@@ -413,14 +775,183 @@
     return panel;
   }
 
+  function appendItemSelect(panel, panelKey, snacks) {
+    var items = getItemsForPanelCategory(panelKey, snacks, state.pickerState[panelKey].category);
+    var selectedSnackId = state.pickerState[panelKey].snackId;
+    var selectedSnack = state.snackMap[selectedSnackId] || null;
+
+    panel.appendChild(createPickerSelect(
+      getPanelItemLabel(panelKey),
+      getPanelItemPlaceholder(panelKey),
+      items.map(function (snack) {
+        return { value: snack.id, label: snack.title, disabled: state.selectedSnackIds.has(snack.id) };
+      }),
+      selectedSnackId,
+      function (value) {
+        var nextSnack = state.snackMap[value] || null;
+        state.pickerState[panelKey].snackId = value;
+        state.pickerState[panelKey].subtype = "";
+        state.pickerState[panelKey].flavor = "";
+
+        if (!value) {
+          renderSnackGrid(state.snacks);
+          return;
+        }
+
+        if (!selectionNeedsSubtype(nextSnack)) {
+          addCompletedSelection(nextSnack, "");
+          return;
+        }
+
+        renderSnackGrid(state.snacks);
+      }
+    ));
+
+    if (!items.length) {
+      var emptyNote = document.createElement("p");
+      emptyNote.className = "small-note";
+      emptyNote.textContent = "Nothing is listed in that group right now.";
+      panel.appendChild(emptyNote);
+      return;
+    }
+
+    if (selectedSnack && selectionNeedsSubtype(selectedSnack)) {
+      appendSubtypeControls(panel, panelKey, selectedSnack);
+    }
+  }
+
+  function appendSubtypeControls(panel, panelKey, snack) {
+    var config = getPickerVariantConfig(snack);
+
+    if (config.types) {
+      panel.appendChild(createPickerSelect(
+        config.typeLabel || "Type",
+        "Select a type",
+        Object.keys(config.types).map(function (typeName) {
+          return { value: typeName, label: typeName };
+        }),
+        state.pickerState[panelKey].subtype,
+        function (value) {
+          state.pickerState[panelKey].subtype = value;
+          state.pickerState[panelKey].flavor = "";
+          renderSnackGrid(state.snacks);
+        }
+      ));
+
+      if (state.pickerState[panelKey].subtype) {
+        panel.appendChild(createPickerSelect(
+          "Flavor",
+          "Select a flavor",
+          config.types[state.pickerState[panelKey].subtype].map(function (flavor) {
+            return { value: flavor, label: flavor };
+          }),
+          state.pickerState[panelKey].flavor,
+          function (value) {
+            state.pickerState[panelKey].flavor = value;
+            if (value) {
+              addCompletedSelection(snack, buildSubtypeDisplay(state.pickerState[panelKey].subtype, value));
+            } else {
+              renderSnackGrid(state.snacks);
+            }
+          }
+        ));
+      }
+      return;
+    }
+
+    if (config.variants) {
+      panel.appendChild(createPickerSelect(
+        config.variantLabel || "Type",
+        "Select one",
+        config.variants.map(function (variant) {
+          return { value: variant, label: variant };
+        }),
+        state.pickerState[panelKey].subtype,
+        function (value) {
+          state.pickerState[panelKey].subtype = value;
+          if (value) {
+            addCompletedSelection(snack, value);
+          } else {
+            renderSnackGrid(state.snacks);
+          }
+        }
+      ));
+    }
+  }
+
+  function createPickerSelect(labelText, placeholder, options, currentValue, onChange) {
+    var wrapper = document.createElement("div");
+    wrapper.className = "picker-field";
+
+    var label = document.createElement("label");
+    label.className = "picker-label";
+    label.textContent = labelText;
+    wrapper.appendChild(label);
+
+    var select = document.createElement("select");
+    select.className = "select-input grabbed-select";
+
+    var placeholderOption = document.createElement("option");
+    placeholderOption.value = "";
+    placeholderOption.textContent = placeholder;
+    select.appendChild(placeholderOption);
+
+    options.forEach(function (optionData) {
+      var option = document.createElement("option");
+      option.value = optionData.value;
+      option.textContent = optionData.label;
+      option.disabled = !!optionData.disabled;
+      select.appendChild(option);
+    });
+
+    select.value = currentValue || "";
+    select.addEventListener("change", function () {
+      onChange(select.value);
+    });
+
+    wrapper.appendChild(select);
+    return wrapper;
+  }
+
   function createSelectedItem(snack) {
     var item = document.createElement("div");
     item.className = "selected-item";
 
     var label = document.createElement("span");
     label.className = "selected-item-label";
-    label.textContent = snack.title;
+    label.textContent = getSelectedSnackTitle(snack.id);
     item.appendChild(label);
+
+    var actions = document.createElement("div");
+    actions.className = "selected-item-actions";
+
+    var quantity = getSelectedSnackQuantity(snack.id);
+
+    var decreaseButton = document.createElement("button");
+    decreaseButton.className = "selected-item-adjust";
+    decreaseButton.type = "button";
+    decreaseButton.textContent = "-";
+    decreaseButton.disabled = quantity <= 1;
+    decreaseButton.setAttribute("aria-label", "Reduce quantity for " + snack.title);
+    decreaseButton.addEventListener("click", function () {
+      updateSelectedSnackQuantity(snack.id, quantity - 1);
+    });
+    actions.appendChild(decreaseButton);
+
+    var count = document.createElement("span");
+    count.className = "selected-item-count";
+    count.textContent = String(quantity);
+    actions.appendChild(count);
+
+    var increaseButton = document.createElement("button");
+    increaseButton.className = "selected-item-adjust";
+    increaseButton.type = "button";
+    increaseButton.textContent = "+";
+    increaseButton.setAttribute("aria-label", "Increase quantity for " + snack.title);
+    increaseButton.addEventListener("click", function () {
+      updateSelectedSnackQuantity(snack.id, quantity + 1);
+    });
+    actions.appendChild(increaseButton);
 
     var removeButton = document.createElement("button");
     removeButton.className = "selected-item-remove";
@@ -428,30 +959,185 @@
     removeButton.textContent = "X";
     removeButton.setAttribute("aria-label", "Remove " + snack.title);
     removeButton.addEventListener("click", function () {
-      state.selectedSnackIds.delete(snack.id);
+      removeSelectedSnack(snack.id);
       renderSnackGrid(state.snacks);
     });
-    item.appendChild(removeButton);
+    actions.appendChild(removeButton);
+    item.appendChild(actions);
 
     return item;
   }
 
-  function renderTrendList(panel, container, items, labelKey, valueKey) {
-    clearElement(container);
+  function getPanelCategoryLabel(panelKey) {
+    return panelKey === "drinks" ? "Drink category" : "Snack category";
+  }
 
-    var filteredItems = filterPositiveItems(items, valueKey);
+  function getPanelCategoryPlaceholder(panelKey) {
+    return panelKey === "drinks" ? "Select a drink category" : "Select a snack category";
+  }
+
+  function getPanelItemLabel(panelKey) {
+    return panelKey === "drinks" ? "Drink" : "Snack";
+  }
+
+  function getPanelItemPlaceholder(panelKey) {
+    return panelKey === "drinks" ? "Select a drink" : "Select a snack";
+  }
+
+  function getPanelCategoryOptions(panelKey) {
+    if (panelKey === "drinks") {
+      return [
+        { value: "water", label: "Water" },
+        { value: "sports", label: "Sports" },
+        { value: "other", label: "Other" }
+      ];
+    }
+
+    return [
+      { value: "chips", label: "Chips" },
+      { value: "cookies", label: "Cookies" },
+      { value: "crackers", label: "Crackers" },
+      { value: "other", label: "Other" }
+    ];
+  }
+
+  function getItemsForPanelCategory(panelKey, snacks, categoryKey) {
+    return snacks.filter(function (snack) {
+      return panelKey === "drinks"
+        ? getDrinkCategoryKey(snack) === categoryKey
+        : getSnackCategoryKey(snack) === categoryKey;
+    }).sort(function (left, right) {
+      return left.title.localeCompare(right.title);
+    });
+  }
+
+  function getSnackCategoryKey(snack) {
+    var normalizedTitle = snack && snack.normalizedTitle ? snack.normalizedTitle.toLowerCase() : "";
+    var category = snack && snack.category ? snack.category.toLowerCase() : "";
+
+    if (normalizedTitle === "doritos" || normalizedTitle === "lays chips" || normalizedTitle === "cheetos crunchy" || category.indexOf("chip") !== -1) {
+      return "chips";
+    }
+
+    if (
+      normalizedTitle === "oreo cookies"
+      || normalizedTitle === "mini chips ahoy"
+      || normalizedTitle === "teddy grahams"
+      || normalizedTitle === "nutter butter bites"
+      || category.indexOf("cookie") !== -1
+    ) {
+      return "cookies";
+    }
+
+    if (
+      normalizedTitle === "goldfish crackers"
+      || normalizedTitle === "ritz bits"
+      || normalizedTitle === "cheez it crackers"
+      || category.indexOf("cracker") !== -1
+    ) {
+      return "crackers";
+    }
+
+    return "other";
+  }
+
+  function getDrinkCategoryKey(snack) {
+    var normalizedTitle = snack && snack.normalizedTitle ? snack.normalizedTitle.toLowerCase() : "";
+    var category = snack && snack.category ? snack.category.toLowerCase() : "";
+
+    if (normalizedTitle === "water" || category.indexOf("water") !== -1) {
+      return "water";
+    }
+
+    if (normalizedTitle === "gatorade" || normalizedTitle === "powerade" || category.indexOf("sports") !== -1) {
+      return "sports";
+    }
+
+    return "other";
+  }
+
+  function selectionNeedsSubtype(snack) {
+    var config = getPickerVariantConfig(snack);
+    return !!(config.variants || config.types);
+  }
+
+  function getPickerVariantConfig(snack) {
+    var normalizedTitle = snack && snack.normalizedTitle ? snack.normalizedTitle.toLowerCase() : "";
+    return PICKER_VARIANTS[normalizedTitle] || {};
+  }
+
+  function addCompletedSelection(snack, detailText) {
+    if (state.selectedSnackIds.has(snack.id)) {
+      state.selectedQuantityBySnackId[snack.id] = getSelectedSnackQuantity(snack.id) + 1;
+    } else {
+      state.selectedSnackIds.add(snack.id);
+      state.selectedQuantityBySnackId[snack.id] = 1;
+    }
+
+    if (!state.selectedDisplayBySnackId[snack.id]) {
+      state.selectedDisplayBySnackId[snack.id] = buildSelectedDisplay(snack, detailText);
+    }
+
+    resetPickerState(getPickerPanelKeyForSnack(snack));
+    renderSnackGrid(state.snacks);
+  }
+
+  function addSingleCategorySelection(panelKey, snacks, categoryKey) {
+    var items = getItemsForPanelCategory(panelKey, snacks, categoryKey);
+    var snack = items.length ? items[0] : null;
+
+    if (!snack) {
+      resetPickerState(panelKey);
+      renderSnackGrid(state.snacks);
+      return;
+    }
+
+    addCompletedSelection(snack, "");
+  }
+
+  function buildSelectedDisplay(snack, detailText) {
+    if (!detailText) {
+      return snack.title;
+    }
+
+    if (snack.normalizedTitle === "gatorade" || snack.normalizedTitle === "powerade") {
+      return snack.title + " - " + detailText;
+    }
+
+    return snack.title + " - " + detailText;
+  }
+
+  function buildSubtypeDisplay(subtype, flavor) {
+    return subtype + " - " + flavor;
+  }
+
+  function getPickerPanelKeyForSnack(snack) {
+    return isDrinkSnack(snack) ? "drinks" : "snacks";
+  }
+
+  function resetPickerState(panelKey) {
+    state.pickerState[panelKey] = {
+      category: "",
+      snackId: "",
+      subtype: "",
+      flavor: ""
+    };
+  }
+
+  function renderTrendList(panel, container, items, labelKey, valueKey) {
+    var filteredItems = getPositiveItems(items, valueKey);
     if (!filteredItems.length) {
+      destroyChartForContainer(container);
+      clearElement(container);
       togglePanel(panel, false);
       return;
     }
 
     togglePanel(panel, true);
-    renderChartRows(container, filteredItems, labelKey, valueKey);
+    renderDataChart(container, filteredItems, labelKey, valueKey);
   }
 
   function renderSightings(sightings) {
-    clearElement(state.elements.sightingsGrid);
-
     var neighborhood = sightings && sightings.neighborhood ? sightings.neighborhood : {};
     var wasilla = sightings && sightings.wasilla ? sightings.wasilla : {};
 
@@ -468,8 +1154,6 @@
   }
 
   function renderCommunityStats(stats) {
-    clearElement(state.elements.communityStats);
-
     var cards = [
       { label: "Total submissions", value: stats.totalSubmissions || 0 },
       { label: "Grab reports", value: stats.totalGrabReports || 0 },
@@ -482,16 +1166,16 @@
   }
 
   function renderStatCards(panel, container, cards) {
-    clearElement(container);
-
-    var filteredCards = filterPositiveItems(cards, "value");
+    var filteredCards = getPositiveItems(cards, "value");
     if (!filteredCards.length) {
+      destroyChartForContainer(container);
+      clearElement(container);
       togglePanel(panel, false);
       return;
     }
 
     togglePanel(panel, true);
-    renderChartRows(container, filteredCards, "label", "value");
+    renderDataChart(container, filteredCards, "label", "value");
   }
 
   function renderComments(comments) {
@@ -523,6 +1207,108 @@
     });
 
     state.elements.publicComments.appendChild(fragment);
+  }
+
+  function renderDataChart(container, items, labelKey, valueKey) {
+    destroyChartForContainer(container);
+    clearElement(container);
+
+    if (!window.Chart || typeof window.Chart !== "function") {
+      renderChartRows(container, items, labelKey, valueKey);
+      return;
+    }
+
+    var shell = document.createElement("div");
+    shell.className = "chart-shell";
+    shell.style.height = getChartHeight(items.length);
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "chart-canvas";
+    shell.appendChild(canvas);
+    container.appendChild(shell);
+
+    state.chartInstances[container.id] = new window.Chart(canvas.getContext("2d"), {
+      type: "bar",
+      data: {
+        labels: items.map(function (item) {
+          return item[labelKey] || "Unknown";
+        }),
+        datasets: [{
+          data: items.map(function (item) {
+            return Number(item[valueKey]) || 0;
+          }),
+          backgroundColor: items.map(function (_, index) {
+            return getChartColor(index);
+          }),
+          borderWidth: 0,
+          borderRadius: 4,
+          barThickness: 18,
+          maxBarThickness: 18
+        }]
+      },
+      options: {
+        animation: false,
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: true,
+            displayColors: false,
+            backgroundColor: "rgba(9, 15, 24, 0.94)",
+            titleColor: "#edf4fa",
+            bodyColor: "#edf4fa",
+            borderColor: "rgba(141, 201, 228, 0.22)",
+            borderWidth: 1
+          }
+        },
+        layout: {
+          padding: {
+            top: 6,
+            right: 10,
+            bottom: 4,
+            left: 4
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: {
+              color: "#9fb6c8",
+              precision: 0,
+              stepSize: 1,
+              font: {
+                size: 11
+              }
+            },
+            border: {
+              color: "rgba(141, 201, 228, 0.18)"
+            },
+            grid: {
+              color: "rgba(141, 201, 228, 0.12)"
+            }
+          },
+          y: {
+            ticks: {
+              color: "#edf4fa",
+              font: {
+                size: 12,
+                weight: "700"
+              }
+            },
+            border: {
+              color: "rgba(141, 201, 228, 0.18)"
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
   }
 
   function renderChartRows(container, items, labelKey, valueKey) {
@@ -563,9 +1349,27 @@
     container.appendChild(fragment);
   }
 
-  function filterPositiveItems(items, valueKey) {
+  function destroyChartForContainer(container) {
+    if (!container || !container.id || !state.chartInstances[container.id]) {
+      return;
+    }
+
+    state.chartInstances[container.id].destroy();
+    delete state.chartInstances[container.id];
+  }
+
+  function getPositiveItems(items, valueKey) {
     return (Array.isArray(items) ? items : []).filter(function (item) {
       return Number(item && item[valueKey]) > 0;
+    }).sort(function (left, right) {
+      var leftValue = Number(left && left[valueKey]) || 0;
+      var rightValue = Number(right && right[valueKey]) || 0;
+
+      if (rightValue !== leftValue) {
+        return rightValue - leftValue;
+      }
+
+      return String(left && (left.title || left.label) || "").localeCompare(String(right && (right.title || right.label) || ""));
     });
   }
 
@@ -573,6 +1377,23 @@
     return items.reduce(function (maxValue, item) {
       return Math.max(maxValue, Number(item && item[valueKey]) || 0);
     }, 0);
+  }
+
+  function getChartHeight(itemCount) {
+    return Math.max(170, itemCount * 42 + 34) + "px";
+  }
+
+  function getChartColor(index) {
+    var palette = [
+      "#8dbce8",
+      "#78d5c6",
+      "#9bd18e",
+      "#f0b15b",
+      "#de7663",
+      "#d8d16c"
+    ];
+
+    return palette[index % palette.length];
   }
 
   function getChartWidth(value, maxValue) {
@@ -760,8 +1581,10 @@
   async function handleFormSubmit(event) {
     event.preventDefault();
 
+    var submitMode = getSubmitMode(event);
+
     if (!state.supabase) {
-      showFeedback("This page is not connected yet. Add your Supabase keys first.", true);
+      showFeedback(submitMode, "This page is not connected yet. Add your Supabase keys first.", true);
       showSetupMessage("Add your Supabase URL and anon key in index.html to turn on live submissions.");
       return;
     }
@@ -769,14 +1592,20 @@
     var payload;
 
     try {
-      payload = collectSubmissionPayload();
+      if (submitMode === "optional") {
+        payload = collectOptionalPayload();
+      } else if (submitMode === "selection") {
+        payload = collectSelectionPayload();
+      } else {
+        payload = collectSnackPayload();
+      }
     } catch (error) {
-      showFeedback(error.message, true);
+      showFeedback(submitMode, error.message, true);
       return;
     }
 
     disableSubmit(true);
-    showFeedback("Sending your feedback...", false);
+    showFeedback(submitMode, "Sending your feedback...", false);
 
     try {
       var response = await state.supabase.rpc("submit_snack_feedback", {
@@ -788,6 +1617,17 @@
       }
 
       var result = response.data || {};
+      var successMessage = result.message || "Thanks. Your feedback has been saved.";
+
+      if (submitMode === "snack" && payload.customSnackOriginal && result.createdSnackId) {
+        successMessage = "Your snack request was saved and is waiting for approval before it shows in the public list.";
+      } else if (submitMode === "selection") {
+        successMessage = "Your snack picks were saved.";
+      } else if (submitMode === "snack") {
+        successMessage = "Your suggestion was saved.";
+      } else if (submitMode === "optional") {
+        successMessage = "Your optional note was saved.";
+      }
 
       if (result.createdSnackId) {
         state.localVotes.delete(result.createdSnackId);
@@ -795,51 +1635,135 @@
       }
 
       await sendEmailNotification(payload, result);
-      clearFormState();
-      showFeedback(result.message || "Thanks. Your snack note has been saved.", false);
+      if (submitMode === "optional") {
+        setOptionalSectionOpen(true);
+        clearOptionalFormState();
+      } else if (submitMode === "selection") {
+        clearSelectionOnlyState();
+      } else {
+        clearSnackFormState();
+      }
+      showFeedback(submitMode, successMessage, false);
       await loadStationData();
     } catch (error) {
       console.error("Unable to submit feedback.", error);
-      showFeedback("That note could not be saved right now. Please try again in a moment.", true);
+      showFeedback(submitMode, "That note could not be saved right now. Please try again in a moment.", true);
     } finally {
       disableSubmit(false);
     }
   }
 
-  function collectSubmissionPayload() {
-    var customSnackOriginal = cleanText(state.elements.customSnackInput.value, 80);
-    var selectedSnackIds = Array.from(state.selectedSnackIds);
-    var selectedSnackTitles = selectedSnackIds.map(function (snackId) {
-      return state.snackMap[snackId] ? state.snackMap[snackId].title : "";
-    }).filter(Boolean);
+  function getSubmitMode(event) {
+    if (event.submitter && event.submitter.dataset && event.submitter.dataset.submitMode) {
+      return event.submitter.dataset.submitMode;
+    }
 
-    var payload = {
+    if (isOptionalFieldElement(document.activeElement)) {
+      return "optional";
+    }
+
+    return state.pendingSubmitMode || "snack";
+  }
+
+  function createBasePayload() {
+    return {
       sessionId: state.sessionId,
-      selectedSnackIds: selectedSnackIds,
-      selectedSnackTitles: selectedSnackTitles,
-      customSnackOriginal: customSnackOriginal,
-      customSnackNormalized: normalizeSnackText(customSnackOriginal),
-      matchedSnackId: state.customDecision === "matched-existing" && state.selectedMatch ? state.selectedMatch.id : null,
-      customSnackDecision: state.customDecision,
-      preferredWaterBrand: cleanText(state.elements.preferredWaterBrand.value, 80),
-      wantsAdded: cleanText(state.elements.wantsAdded.value, 250),
-      dislikes: cleanText(state.elements.dislikes.value, 250),
-      deliveryFrequency: state.elements.deliveryFrequency.value,
-      areaDelivery: state.elements.areaDelivery.value,
-      neighborhoodSighting: state.elements.neighborhoodSighting.value,
-      wasillaSighting: state.elements.wasillaSighting.value,
-      message: cleanText(state.elements.optionalMessage.value, 350),
-      nickname: cleanText(state.elements.optionalNickname.value, 40),
-      submittedAnonymously: cleanText(state.elements.optionalNickname.value, 40) === "",
-      needsReview: shouldMarkNeedsReview(customSnackOriginal)
+      selectedSnackIds: [],
+      selectedSnackTitles: [],
+      customSnackOriginal: "",
+      customSnackNormalized: "",
+      matchedSnackId: null,
+      customSnackDecision: "none",
+      preferredWaterBrand: "",
+      wantsAdded: "",
+      dislikes: "",
+      deliveryFrequency: "",
+      areaDelivery: "",
+      neighborhoodSighting: "",
+      wasillaSighting: "",
+      message: "",
+      nickname: "",
+      submittedAnonymously: true,
+      needsReview: false
     };
+  }
 
-    var hasMeaningfulContent = payload.selectedSnackIds.length || payload.customSnackOriginal || payload.preferredWaterBrand || payload.wantsAdded || payload.dislikes || payload.message;
+  function collectSelectionPayload() {
+    var selectedSelectionData = buildExpandedSelectedSnackData();
+    var selectedSnackIds = selectedSelectionData.selectedSnackIds;
+    var selectedSnackTitles = selectedSelectionData.selectedSnackTitles;
+
+    if (!selectedSnackIds.length) {
+      throw new Error("Please pick at least one snack or drink before sending.");
+    }
+
+    var payload = createBasePayload();
+    payload.selectedSnackIds = selectedSnackIds;
+    payload.selectedSnackTitles = selectedSnackTitles;
+    return payload;
+  }
+
+  function collectSnackPayload() {
+    var customSnackOriginal = cleanText(state.elements.customSnackInput.value, 80);
+    var selectedSelectionData = buildExpandedSelectedSnackData();
+    var selectedSnackIds = selectedSelectionData.selectedSnackIds;
+    var selectedSnackTitles = selectedSelectionData.selectedSnackTitles;
+
+    var payload = createBasePayload();
+    payload.selectedSnackIds = selectedSnackIds;
+    payload.selectedSnackTitles = selectedSnackTitles;
+    payload.customSnackOriginal = customSnackOriginal;
+    payload.customSnackNormalized = normalizeSnackText(customSnackOriginal);
+    payload.matchedSnackId = state.customDecision === "matched-existing" && state.selectedMatch ? state.selectedMatch.id : null;
+    payload.customSnackDecision = state.customDecision;
+    payload.needsReview = shouldMarkNeedsReview(customSnackOriginal);
+
+    var hasMeaningfulContent = payload.selectedSnackIds.length || payload.customSnackOriginal;
     if (!hasMeaningfulContent) {
-      throw new Error("Please pick a snack, add a request, or leave a short note before sending.");
+      throw new Error("Please pick a snack or add a suggestion before sending.");
     }
 
     return payload;
+  }
+
+  function collectOptionalPayload() {
+    var nickname = cleanText(state.elements.optionalNickname.value, 40);
+    var payload = createBasePayload();
+
+    payload.preferredWaterBrand = cleanText(state.elements.preferredWaterBrand.value, 80);
+    payload.dislikes = cleanText(state.elements.dislikes.value, 250);
+    payload.deliveryFrequency = state.elements.deliveryFrequency.value;
+    payload.areaDelivery = state.elements.areaDelivery.value;
+    payload.neighborhoodSighting = state.elements.neighborhoodSighting.value;
+    payload.wasillaSighting = state.elements.wasillaSighting.value;
+    payload.message = cleanText(state.elements.optionalMessage.value, 350);
+    payload.nickname = nickname;
+    payload.submittedAnonymously = nickname === "";
+
+    var hasMeaningfulContent = payload.preferredWaterBrand
+      || payload.dislikes
+      || payload.deliveryFrequency
+      || payload.areaDelivery
+      || payload.neighborhoodSighting
+      || payload.wasillaSighting
+      || payload.message;
+
+    if (!hasMeaningfulContent) {
+      throw new Error("Add something in the optional section before sending.");
+    }
+
+    return payload;
+  }
+
+  function isOptionalFieldElement(element) {
+    return element === state.elements.preferredWaterBrand
+      || element === state.elements.dislikes
+      || element === state.elements.deliveryFrequency
+      || element === state.elements.areaDelivery
+      || element === state.elements.neighborhoodSighting
+      || element === state.elements.wasillaSighting
+      || element === state.elements.optionalMessage
+      || element === state.elements.optionalNickname;
   }
 
   function shouldMarkNeedsReview(customSnackOriginal) {
@@ -865,12 +1789,12 @@
 
   async function handleVote(snackId) {
     if (!state.supabase) {
-      showFeedback("Voting turns on after the site is connected to Supabase.", true);
+      showFeedback("snack", "Voting turns on after the site is connected to Supabase.", true);
       return;
     }
 
     if (state.localVotes.has(snackId)) {
-      showFeedback("You already used your plus one for that snack.", true);
+      showFeedback("snack", "You already used your plus one for that snack.", true);
       return;
     }
 
@@ -890,19 +1814,19 @@
       var result = response.data || {};
 
       if (result.code === "own_snack") {
-        showFeedback("Thanks for the suggestion. You cannot plus one your own snack, but others can vote for it once it is approved.", true);
+        showFeedback("snack", "Thanks for the suggestion. You cannot plus one your own snack, but others can vote for it once it is approved.", true);
       } else if (result.code === "duplicate") {
         rememberLocalVote(snackId);
-        showFeedback(result.message || "You already used your plus one for that snack.", false);
+        showFeedback("snack", result.message || "You already used your plus one for that snack.", false);
       } else {
         rememberLocalVote(snackId);
-        showFeedback(result.message || "Your plus one was counted.", false);
+        showFeedback("snack", result.message || "Your plus one was counted.", false);
       }
 
       await loadStationData();
     } catch (error) {
       console.error("Unable to save vote.", error);
-      showFeedback("That plus one could not be saved right now. Please try again shortly.", true);
+      showFeedback("snack", "That plus one could not be saved right now. Please try again shortly.", true);
     } finally {
       state.votePendingSnackId = "";
       renderSnackGrid(state.snacks);
@@ -911,9 +1835,10 @@
 
   function toggleSnackSelection(snackId) {
     if (state.selectedSnackIds.has(snackId)) {
-      state.selectedSnackIds.delete(snackId);
+      removeSelectedSnack(snackId);
     } else {
       state.selectedSnackIds.add(snackId);
+      state.selectedQuantityBySnackId[snackId] = 1;
     }
 
     renderSnackGrid(state.snacks);
@@ -922,27 +1847,158 @@
   function selectSnackIfMissing(snackId) {
     if (!state.selectedSnackIds.has(snackId)) {
       state.selectedSnackIds.add(snackId);
+      state.selectedQuantityBySnackId[snackId] = 1;
     }
   }
 
-  function clearFormState() {
-    state.elements.form.reset();
-    state.selectedSnackIds.clear();
-    resetMatchPanel();
-    resetAutoResize(state.elements.wantsAdded);
-    resetAutoResize(state.elements.dislikes);
-    resetAutoResize(state.elements.optionalMessage);
+  function getSelectedSnackQuantity(snackId) {
+    if (state.selectedQuantityBySnackId[snackId]) {
+      return state.selectedQuantityBySnackId[snackId];
+    }
+
+    return state.selectedSnackIds.has(snackId) ? 1 : 0;
+  }
+
+  function updateSelectedSnackQuantity(snackId, nextQuantity) {
+    if (nextQuantity <= 0) {
+      removeSelectedSnack(snackId);
+    } else {
+      state.selectedSnackIds.add(snackId);
+      state.selectedQuantityBySnackId[snackId] = nextQuantity;
+    }
+
     renderSnackGrid(state.snacks);
   }
 
-  function showFeedback(message, isError) {
-    state.elements.feedbackPanel.classList.remove("hidden");
-    state.elements.feedbackPanel.classList.toggle("error-state", !!isError);
-    state.elements.feedbackMessage.textContent = message;
+  function removeSelectedSnack(snackId) {
+    state.selectedSnackIds.delete(snackId);
+    delete state.selectedQuantityBySnackId[snackId];
+    delete state.selectedDisplayBySnackId[snackId];
+  }
+
+  function buildExpandedSelectedSnackData() {
+    var selectedSnackIds = [];
+    var selectedSnackTitles = [];
+
+    Array.from(state.selectedSnackIds).forEach(function (snackId) {
+      var quantity = getSelectedSnackQuantity(snackId);
+      var snackTitle = getSelectedSnackTitle(snackId);
+      var index;
+
+      for (index = 0; index < quantity; index += 1) {
+        selectedSnackIds.push(snackId);
+
+        if (snackTitle) {
+          selectedSnackTitles.push(snackTitle);
+        }
+      }
+    });
+
+    return {
+      selectedSnackIds: selectedSnackIds,
+      selectedSnackTitles: selectedSnackTitles
+    };
+  }
+
+  function getSelectedSnackTitle(snackId) {
+    return state.selectedDisplayBySnackId[snackId] || (state.snackMap[snackId] ? state.snackMap[snackId].title : "");
+  }
+
+  function clearSelectedSnackState() {
+    state.selectedSnackIds.clear();
+    state.selectedDisplayBySnackId = {};
+    state.selectedQuantityBySnackId = {};
+  }
+
+  function clearSnackFormState() {
+    clearSelectedSnackState();
+    resetPickerState("snacks");
+    resetPickerState("drinks");
+    state.elements.customSnackInput.value = "";
+    resetMatchPanel();
+    renderSnackGrid(state.snacks);
+  }
+
+  function clearSelectionOnlyState() {
+    clearSelectedSnackState();
+    resetPickerState("snacks");
+    resetPickerState("drinks");
+    renderSnackGrid(state.snacks);
+  }
+
+  function clearOptionalFormState() {
+    state.elements.preferredWaterBrand.value = "";
+    state.elements.dislikes.value = "";
+    resetOptionalSelects();
+    state.elements.optionalMessage.value = "";
+    state.elements.optionalNickname.value = "";
+    resetAutoResize(state.elements.dislikes);
+    resetAutoResize(state.elements.optionalMessage);
+  }
+
+  function toggleOptionalSection() {
+    setOptionalSectionOpen(state.elements.optionalSectionContent.classList.contains("hidden"));
+  }
+
+  function toggleSuggestionSection() {
+    setSuggestionSectionOpen(state.elements.suggestionSectionContent.classList.contains("hidden"));
+  }
+
+  function setSuggestionSectionOpen(isOpen) {
+    state.elements.suggestionSectionContent.classList.toggle("hidden", !isOpen);
+    state.elements.suggestionToggleButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    state.elements.suggestionToggleButton.textContent = isOpen ? "[-] Close Suggestions" : "[+] Open Suggestions";
+  }
+
+  function setOptionalSectionOpen(isOpen) {
+    state.elements.optionalSectionContent.classList.toggle("hidden", !isOpen);
+    state.elements.optionalToggleButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    state.elements.optionalToggleButton.textContent = isOpen ? "[-] Close Optional Form" : "[+] Open Optional Form";
+  }
+
+  function resetOptionalSelects() {
+    resetSelectToPlaceholder(state.elements.deliveryFrequency);
+    resetSelectToPlaceholder(state.elements.areaDelivery);
+    resetSelectToPlaceholder(state.elements.neighborhoodSighting);
+    resetSelectToPlaceholder(state.elements.wasillaSighting);
+  }
+
+  function resetSelectToPlaceholder(select) {
+    if (select) {
+      select.value = "";
+    }
+  }
+
+  function showFeedback(section, message, isError) {
+    if (section === "optional") {
+      setOptionalSectionOpen(true);
+    } else if (section === "snack") {
+      setSuggestionSectionOpen(true);
+    }
+
+    var panel;
+    var text;
+
+    if (section === "optional") {
+      panel = state.elements.optionalFeedbackPanel;
+      text = state.elements.optionalFeedbackMessage;
+    } else if (section === "selection") {
+      panel = state.elements.selectionFeedbackPanel;
+      text = state.elements.selectionFeedbackMessage;
+    } else {
+      panel = state.elements.snackFeedbackPanel;
+      text = state.elements.snackFeedbackMessage;
+    }
+
+    panel.classList.remove("hidden");
+    panel.classList.toggle("error-state", !!isError);
+    text.textContent = message;
   }
 
   function disableSubmit(disabled) {
-    state.elements.submitButton.disabled = !!disabled;
+    state.elements.selectionSubmitButton.disabled = !!disabled;
+    state.elements.snackSubmitButton.disabled = !!disabled;
+    state.elements.optionalSubmitButton.disabled = !!disabled;
   }
 
   function showSetupMessage(message) {
