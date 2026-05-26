@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=28">
+  <link rel="stylesheet" href="style.css?v=34">
   <script>
     window.DRIVER_SNACK_CONFIG = {
       supabaseUrl: "https://xcmhhuvcovbjvcabukbu.supabase.co",
@@ -16,7 +16,7 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="admin.js?v=15"></script>
+  <script defer src="admin.js?v=22"></script>
 </head>
 <body class="admin-body">
   <main class="page-shell">
@@ -24,7 +24,7 @@
       <header class="panel admin-header">
         <p class="hero-kicker">Driver Snack Station</p>
         <h1>Admin</h1>
-        <p>Simple moderation page for snacks, submissions, comments, trends, and station status.</p>
+        <p>Simple moderation page for snacks, submissions, comments, and trends.</p>
       </header>
 
       <section class="panel" id="admin-setup-panel">
@@ -38,16 +38,11 @@
         <p class="small-note" id="admin-gate-status">Admin tools stay locked until Supabase is configured and the passcode is accepted.</p>
       </section>
 
-      <section class="panel hidden" id="admin-app">
-        <div class="panel-heading">
-          <h2>Station Status</h2>
-          <button class="ghost-button" id="admin-refresh-button" type="button">Refresh</button>
+      <section class="panel hidden admin-toolbar-panel" id="admin-app">
+        <div class="panel-heading admin-toolbar-heading">
+          <h2>Admin Tools</h2>
+          <button class="ghost-button admin-refresh-compact" id="admin-refresh-button" type="button">Refresh</button>
         </div>
-        <form id="status-form" class="inline-form">
-          <label class="field-label" for="station-status-input">Current station status</label>
-          <input id="station-status-input" class="text-input" type="text" maxlength="120" placeholder="Update current status">
-          <button class="secondary-button" type="submit">Save Status</button>
-        </form>
         <p class="small-note" id="admin-status-message">No changes yet.</p>
       </section>
 
@@ -74,7 +69,7 @@
           <h2>Snack Catalog</h2>
           <button class="secondary-button" id="export-csv-button" type="button">Export CSV</button>
         </div>
-        <div class="admin-list" id="catalog-list"></div>
+        <div class="admin-catalog-root" id="catalog-list"></div>
       </section>
 
       <section class="panel hidden" id="comments-panel">
